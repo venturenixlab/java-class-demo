@@ -36,20 +36,17 @@ class Name {
   }
 }
 
+
 class Animal {
-  // Attributes
-  // static, means all instances share the class level variable
-  // static final, means the variable cannot be updated by instances
-  static final int maxAge = 120;
-  int age;
-  int weight;
+
+  private int age;
+  private int weight;
   // Self-defined Type Name (refer to class Name)
   Name name;
 
   // Empty Constructor
   // if there is no constructor in this class, empty constructor implicitly exists
-  Animal() {
-  }
+  Animal() {}
 
   // if we declare a non-empty constructor, then the implicit empty constructor
   // will be no longer exist
@@ -75,21 +72,28 @@ class Animal {
   }
 
   int getAge() {
+    // other code
     return this.age;
+  }
+
+  String getAgeToString() {
+    return String.valueOf(30);
   }
 
   // other setters and getters ...
   public String toString() {
-    return "[Age=" + this.age
-        + ", weight=" + this.weight
-        + ", Name.firstName=" + this.name.getFirstName()
-        + ", Name.lastName=" + this.name.getLastName()
-        + "]";
+    return "[Age=" + this.age + ", weight=" + this.weight + ", Name.firstName="
+        + this.name.getFirstName() + ", Name.lastName="
+        + this.name.getLastName() + "]";
   }
 }
 
+
 class DemoDataType {
-  public static void main(String[] args) {
+  String firstname;
+
+  public static void main(String[] a) {
+
     // Start to execute
     Animal dog = new Animal(); // by empty constructor
     dog.setAge(8); // set dogAge = 8
@@ -134,9 +138,9 @@ class DemoDataType {
     System.out.println(x6.equals(y6)); // true
 
     // Character char3 = new Character("a");
-    Character c1 = 'c';
-    Character c2 = 'c';
-    Character c3 = new Character('c');
+    String c1 = "c";
+    String c2 = "c";
+    String c3 = new String("c");
     System.out.println(c1 == c2); // true
     System.out.println(c1 == c3); // false
   }
