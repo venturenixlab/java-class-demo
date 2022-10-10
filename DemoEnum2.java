@@ -32,7 +32,7 @@ class Uility {
   }
 
   public static boolean isForwardStatus(Status s1, Status s2) {
-    return s1.code > s2.code;
+    return s1.getCode() > s2.getCode();
   }
 
   public static Direction get(int code) {
@@ -59,6 +59,10 @@ enum Direction { // implicitly public static final
   public boolean isOppsite(Direction d) {
     boolean result = d.code * -1 == this.code;
     return result;
+  }
+
+  public int getCode() {
+    return this.code;
   }
 
   public static Direction valueOf(char c) {

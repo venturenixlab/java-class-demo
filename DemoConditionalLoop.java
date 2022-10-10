@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class DemoConditionalLoop {
   public static void main(String[] args) {
     // 1. Overflow Concept
