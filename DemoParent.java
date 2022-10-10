@@ -9,10 +9,6 @@ class Animal {
     this.age = age;
   }
 
-  private int someMethod() {
-    return 1;
-  }
-
   public int getAge() {
     return this.age;
   }
@@ -24,7 +20,7 @@ class Animal {
 
 // class signature
 class Cat extends Animal {
-  // no age here
+  
   Cat() {
 
   }
@@ -36,10 +32,10 @@ class Cat extends Animal {
 
 public class DemoParent {
   public static void maim(String[] args) {
-    
+
     Cat cat = new Cat();
     Cat cat2 = new Cat(3);
     System.out.println(cat.getAge());
-    // cat.someMethod();
+    System.out.println(cat2.getAge());
   }
 }

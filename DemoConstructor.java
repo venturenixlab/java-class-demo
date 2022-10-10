@@ -8,7 +8,6 @@ class FireFighter {
 
   // constructor
   FireFighter() {
-
   }
 
   // initialization

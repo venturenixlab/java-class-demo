@@ -14,7 +14,8 @@ interface Shape2 {
 
   double area(); // implicitly public
 
-  void print(String s) {
+  // after Java 8
+  default void print(String s) {
     System.out.println(s);
   }
 }

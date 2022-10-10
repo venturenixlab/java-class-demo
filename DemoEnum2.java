@@ -1,14 +1,8 @@
-import javax.sound.midi.SysexMessage;
-
 class Customer {
 
   private int age;
   private String email;
 
-  DemoEnum2() {
-    this.age = age;
-    this.email = email;
-  }
   // setters
 
   public boolean isElderly() {
@@ -17,31 +11,7 @@ class Customer {
 
   public boolean isValidEmail() {
     return this.email.length() < 100;
-    
-  }
-}
 
-class Uility {
-  public static Direction get(char c) {
-    for (Direction d : Direction.values()) { // Direction.values() means Direction Set
-      if (d.dbValue == c) {
-        return d;
-      }
-    }
-    return null; // or throw exception
-  }
-
-  public static boolean isForwardStatus(Status s1, Status s2) {
-    return s1.getCode() > s2.getCode();
-  }
-
-  public static Direction get(int code) {
-    for (Direction d : Direction.values()) {
-      if (d.code == c) {
-        return d;
-      }
-    }
-    return null; // or throw exception
   }
 }
 
@@ -55,6 +25,7 @@ enum Direction { // implicitly public static final
     this.dbValue = dbValue;
     this.code = code;
   }
+
   // System.out.println(Direction.NORTH.isOppsite(Direction.EAST)); // false
   public boolean isOppsite(Direction d) {
     boolean result = d.code * -1 == this.code;
@@ -76,7 +47,7 @@ enum Direction { // implicitly public static final
 
   public static Direction valueOf(int code) {
     for (Direction d : Direction.values()) {
-      if (d.code == c) {
+      if (d.code == code) {
         return d;
       }
     }
@@ -99,7 +70,7 @@ enum Status { // implicitly public static final
   }
 
   public boolean isForwardStatus(Status s) {
-    return s.code > this.code; 
+    return s.code > this.code;
   }
 
   public static boolean isForwardStatus(Status oldStatus, Status newStatus) {
@@ -115,11 +86,11 @@ class DemoEnum2 {
   public static void main(String[] args) {
     Customer customer = new Customer();
     if (customer.isValidEmail()) {
-      throw error;
+      System.out.println("checked it's valid email");
     }
 
     if (customer.isElderly()) {
-      doSomething();
+      System.out.println("checked it's elderly");
     }
     System.out.println(Direction.EAST); // print EAST
 
@@ -132,7 +103,7 @@ class DemoEnum2 {
     System.out.println(Direction.valueOf(2)); // print EAST
     System.out.println(Direction.NORTH.isOppsite(Direction.EAST)); // false
     System.out.println(Status.ORDERED.isForwardStatus(Status.PAID)); // true
-    
+
     System.out.println(Direction.NORTH); // print NORTH
     System.out.println(Direction.NORTH.name()); // print NORTH
     System.out.println(Direction.EAST.ordinal()); // print 2
@@ -145,7 +116,6 @@ class DemoEnum2 {
     if (Status.ORDERED.isForwardStatus(Status.COMPLETED)) {
       System.out.println("Okay to update");
     }
-    
 
   }
 }

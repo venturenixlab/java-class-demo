@@ -1,13 +1,13 @@
 // Function Interface means an interface has one abstract method only
-
+@FunctionalInterface
 interface Substraction1 {
   int substract();
 }
-
+@FunctionalInterface
 interface Substraction2 {
   int substract(int x, int y);
 }
-
+@FunctionalInterface
 interface Substraction3 {
   int substract(int x);
 }

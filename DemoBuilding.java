@@ -1,9 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 class Height {
   private double height; // cm
-
-  // int heightInMetres;
 
   // Constructor
   Height(double height) {
@@ -29,10 +28,11 @@ class Height {
 
 class Building {
   // attributes
-  private Height height; // cm
-  // private Password password;
-  // constructor
+  // Define the attribute "height" by the Type Height,
+  // instead of int or String or double, etc
+  private Height height;
 
+  // constructors
   Building(Height height) {
     this.height = height;
   }
@@ -40,8 +40,8 @@ class Building {
   Building() {
 
   }
-  // method
 
+  // methods
   public Height getHeight() {
     return this.height;
   }
@@ -52,10 +52,16 @@ class Building {
 }
 
 class ShoppingMall extends Building {
-  private final Conceirge conceirge;
+  private final Conceirge conceirge; // final
 
+  // Demostrate how to deal with final attribute with constructors
   ShoppingMall() {
     this.conceirge = new Conceirge();
+  }
+
+  // or you can compare this normal constructor
+  ShoppingMall(Conceirge conceirge) {
+    this.conceirge = conceirge;
   }
 
   public Conceirge getConceirge() {
@@ -66,10 +72,18 @@ class ShoppingMall extends Building {
 class Conceirge {
   private final ArrayList<Receptionist> receptionists = new ArrayList<>();
 
+  // A Constructor that assign the fixed receptionists directly
   Conceirge() {
     this.receptionists.add(new Receptionist("Alan", "Ho", "123"));
     this.receptionists.add(new Receptionist("Sunny", "Ng", "234"));
     this.receptionists.add(new Receptionist("Amir", "Yu", "1234"));
+  }
+
+  // Another Constructor that assign receptionists by main method
+  Conceirge(ArrayList<Receptionist> receptionists) {
+    for (Receptionist r : receptionists) {
+      this.receptionists.add(r);
+    }
   }
 
   public ArrayList<Receptionist> getReceptionists() {
@@ -107,11 +121,24 @@ public class DemoBuilding {
 
     System.out.println(building.getHeight().getHeightInCm()); // print 13
     System.out.println(building.getHeight().getHeightInMetres()); // print 0.13
+    System.out.println(building2.getHeight().getHeightInCm()); // print 14.5
 
-    ShoppingMall shoppingMall = new ShoppingMall(); // 3 or 4 or 10
+    // Example 1 for ShoppingMall:
+    // This constructor actually creates Conceirge and fixed Receptionist
+    ShoppingMall shoppingMall = new ShoppingMall();
 
     for (Receptionist r : shoppingMall.getConceirge().getReceptionists()) {
-      System.out.println(r.getFirstName());
+      System.out.println(r.getFirstName()); // print all Receptionist with firstName
+    }
+
+    // Example 2 for ShoppingMall:
+    ArrayList<Receptionist> receptionists = new ArrayList<>();
+    receptionists.add(new Receptionist("Cherry", "Wong", "234"));
+    receptionists.add(new Receptionist("Sue", "Yu", "789"));
+
+    ShoppingMall shoppingMall2 = new ShoppingMall(new Conceirge(receptionists));
+    for (Receptionist r : shoppingMall2.getConceirge().getReceptionists()) {
+      System.out.println(r.getFirstName()); // print all Receptionist with firstName
     }
   }
 }
