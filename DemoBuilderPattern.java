@@ -37,12 +37,12 @@ class Customer {
     int age;
     String name;
 
-    public Builder age(int age) {
-      this.age = age;
+    public Builder setAge(int age) {
+      this.age = age; // implementation
       return this;
     }
 
-    public Builder name(String name) {
+    public Builder setName(String name) {
       this.name = name;
       return this;
     }
@@ -53,11 +53,17 @@ class Customer {
   }
 }
 
-
 class DemoBuilderPattern {
   public static void main(String[] args) {
     // builder pattern to create Customer Instance
-    Customer customer = Customer.builder().age(13).name("Tommy").build();
+    Customer customer = Customer.builder().setAge(13).setName("Tommy").build();
+    
+    // customer3 is doing same thing with customer
+    Customer.Builder customerBuilder = Customer.builder();
+    customerBuilder = customerBuilder.setAge(14);
+    customerBuilder = customerBuilder.setName("Alex");
+    Customer customer3 = customerBuilder.build();
+    
     System.out.println(customer.toString());
     // Normal way to create Custome Instance
     Customer customer2 = new Customer();

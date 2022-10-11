@@ -1,5 +1,3 @@
-import javax.swing.plaf.synth.SynthEditorPaneUI;
-
 abstract class Shape { // com.apple.app.banner.Shape
   String color; // package-private
 
