@@ -14,3 +14,8 @@
 1.  Create another class to implements Starter. Create Factory Class, with static method to return child class object based on the input parameter
 ### Interface
 11.  One interface for the class to implement
+### Extends
+12. create a class extends a parent class, with a static String[] to pretend database
+### enum
+13.  create a enum class (Color) with attributes, and boolean method to describe the attributes
+
