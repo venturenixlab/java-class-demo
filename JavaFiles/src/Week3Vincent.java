@@ -283,6 +283,6 @@ public class Week3Vincent {
     if (Color.RED.isOlympicColor()) {
       System.out.println("Red is a Olympic color");
     }
-    
+
   }
 }

@@ -1,0 +1,50 @@
+// NoSQL database -> Document VS SQL database -> table/ row/column/ records
+
+//SQL database
+table name: Students
+Name, age, sex, class, bonus
+1 "Amy""30""F""1"10000 200
+2 "Wilson""20""M""1"0 
+3 "Sunny""25""M""1"0
+// Syntax: update tablename set column = "Value" where column = "value";
+update Student set bonus = 10000 where sex = "F";
+// delete from tablename where sex = "M";
+delete from Student where sex = "M";
+//  
+select * from Student;
+select * from Student where name = "Amy";
+select name, age, sex from Student where name = "Amy";
+
+table name: class
+1 "26-Sep-2022""Vincent""1"2 "26-Jan-2023""Vincent""2"3 "26-Sep-2023""Vincent""3"
+
+class 1 -> BootCamp
+  Class class;
+  String food;
+  boolean isABoy;
+  List<Student> students;
+
+class 2 -> class, startDate, tutor
+class 3 -> Student
+JSON: sample
+{
+  "class": {
+    "startDate": "26-Sep-2022",
+    "tutor": "Vincent"
+  },
+  "food": "apple",
+  "isABoy": true,
+  "totalSalary": 100000,
+  "studentList": [
+    {
+      "firstName": "Vanus",
+      "lastName": "Cheung"
+    },
+    {
+      "firstName": "Tommy",
+      "lastName": "Cheung"
+    }
+  ]
+}
+
+firstname=tommy, lastname=cheung

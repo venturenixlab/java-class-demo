@@ -1,0 +1,7 @@
+{
+  "java.format.settings.url": ".vscode/googlestyle.xml",
+  "java.project.sourcePaths": [
+    "src"
+  ],
+  "java.project.outputPath": "bin"
+}

@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class DemoArrayList {
   public static void main(String[] args) {
+
     String[] colorsArray = new String[3];
     colorsArray[0] = "Red";
     colorsArray[1] = "Green";
@@ -16,5 +17,6 @@ public class DemoArrayList {
     strings.add("BCDE");
     System.out.println(strings.toString());
     System.out.println(strings);
+    
   }
 }

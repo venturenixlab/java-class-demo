@@ -1,9 +1,26 @@
 class Customer {
 
+  private String name;
   private int age;
   private String email;
 
+  Customer() {
+  };
+
   // setters
+  Customer(String name, int age, String email) {
+    this.name = name;
+    this.age = age;
+    this.email = email;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
 
   public boolean isElderly() {
     return this.age > 60;
@@ -84,7 +101,8 @@ enum Status { // implicitly public static final
 
 class DemoEnum2 {
   public static void main(String[] args) {
-    Customer customer = new Customer();
+    Customer customer = new Customer("Tom", 12, "Tom123@gmail.com");
+
     if (customer.isValidEmail()) {
       System.out.println("checked it's valid email");
     }

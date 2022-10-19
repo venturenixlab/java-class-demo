@@ -1,5 +1,4 @@
 // testing git
-import java.util.Random;
 
 class Name {
   // attributes

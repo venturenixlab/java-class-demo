@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+package object;
 
 class FireFighter {
   private int hoursOfTraining; // arttribute or state
@@ -7,11 +6,11 @@ class FireFighter {
   private String sex; // arttribute or state
 
   // constructor
-  FireFighter() {
+  public FireFighter() {
   }
 
   // initialization
-  FireFighter(int a, int b, String c) {
+  public FireFighter(int a, int b, String c) {
     this.hoursOfTraining = a;
     this.age = b;
     this.sex = c;
@@ -29,20 +28,5 @@ class FireFighter {
   // method
   public Integer AddTrainingHour(int a) { // Integer is a return type and int is an input parameter
     return this.hoursOfTraining + a;
-  }
-}
-
-class DemoConstructor {
-
-  public static void main(String[] args) {
-    List<FireFighter> fireFighters = new ArrayList<>();
-    FireFighter fireFighter1 = new FireFighter();
-    FireFighter fireFighter2 = new FireFighter(30, 15, "F");
-    System.out.print(fireFighter2.getHoursOfTraining());
-    fireFighter1.setHoursOfTraining(40);
-    fireFighter2.setHoursOfTraining(90);
-    fireFighter1.AddTrainingHour(3);
-    fireFighters.add(fireFighter1);
-    fireFighters.add(fireFighter2);
   }
 }

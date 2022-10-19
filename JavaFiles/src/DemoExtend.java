@@ -7,7 +7,6 @@ interface Cooker {
   void cook();
 }
 
-
 class Mother implements Driver, Cooker {
   int age;
 

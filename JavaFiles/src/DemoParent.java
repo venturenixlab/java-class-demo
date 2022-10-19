@@ -20,7 +20,7 @@ class Animal {
 
 // class signature
 class Cat extends Animal {
-  
+
   Cat() {
 
   }
@@ -31,7 +31,7 @@ class Cat extends Animal {
 }
 
 public class DemoParent {
-  public static void maim(String[] args) {
+  public static void main(String[] args) {
 
     Cat cat = new Cat();
     Cat cat2 = new Cat(3);
