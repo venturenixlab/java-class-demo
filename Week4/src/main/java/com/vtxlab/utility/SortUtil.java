@@ -1,10 +1,8 @@
 package com.vtxlab.utility;
 
-import java.util.Arrays;
-
 public final class SortUtil {
 
-  public static final void sort(int[] arr, SortHelper sortHelper) {
+  public static final void sort(int[] arr, IntSortHelper sortHelper) {
     sortHelper.sort(arr);
   }
 
@@ -72,10 +70,19 @@ public final class SortUtil {
     }
   }
 
+  public static boolean isAdult(int age) {
+    // Early Return
+    if (age >= 18) {
+      return true;
+    }
+    return false;
+  }
+
   public static void main(String[] args) {
     int[] arr = { 7, 1, 7, 2, 4 };
     // insertionSort(arr);
     selectionSort(arr);
     print(arr);
   }
+  
 }

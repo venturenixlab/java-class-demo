@@ -2,17 +2,29 @@ package com.vtxlab.app;
 
 import static com.vtxlab.utility.SortUtil.sort;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import com.vtxlab.interfaces.MathCalculator;
 import com.vtxlab.interfaces.MathMultiOperation;
 import com.vtxlab.interfaces.MathOperation;
 import com.vtxlab.model.MathOperationHolder;
-import com.vtxlab.utility.SortHelper;
+import com.vtxlab.utility.IntSortHelper;
+import com.vtxlab.utility.IntSortHolder;
 import com.vtxlab.utility.SortUtil;
 
 public class Lambda {
+
+  private int age;
+
+  private Lambda(int age) {
+    this.age = age;
+  }
+
   // Driver program
   public static void main(String[] args) { // main
     // Lambda
@@ -97,14 +109,23 @@ public class Lambda {
     System.out.println(NewString);
 
     // selection sort
-    SortHelper selectionSort = (int[] arr) -> {
+    IntSortHelper selectionSort = (int[] arr) -> {
       SortUtil.selectionSort(arr);
     };
 
     // insertion sort
-    SortHelper insertionSort = (int[] arr) -> {
+    IntSortHelper insertionSort = (int[] arr) -> {
       SortUtil.insertionSort(arr);
     };
+
+    ArrayList<String> strings = new ArrayList<>();
+    strings.add("Winter");
+    strings.add("Spring");
+    strings.add("Autumn");
+    strings.add("Summer");
+    System.out.println(strings);
+    ArrayList<String> strings2 = new ArrayList<>(strings); // copy array
+    System.out.println(strings2);
 
     int[] arr1 = { 1, 3, 5, 11 };
     int[] arr2 = { 1, 3, 5, 11 };
@@ -116,5 +137,67 @@ public class Lambda {
     sort(arr3, selectionSort); // [1, 2, 3, 4]
     sort(arr4, insertionSort); // [1, 2, 3, 4]
 
+    int[] arr5 = { 11, 8, 10, 4 };
+    IntSortHolder intSortHolder = new IntSortHolder(arr5);
+    intSortHolder.sortBy(selectionSort);
+    System.out.println(intSortHolder.toString());
+    System.out.println(intSortHolder.getArray());
+
+    List<String> strings3 = new LinkedList<>();
+    strings3.remove(NewString); // 1.
+
+    List<String> strings4 = new ArrayList<>();
+    strings4.add(NewString); // 2.
+    strings4.remove(NewString); // 2.
+    strings4.get(2); // get the 3rd elements
+
+    LinkedList<String> strings5 = new LinkedList<>();
+
+    String s = "bbb";
+    int i = 0;
+    if ("bbb".equals(s)) { // true
+      i = 2;
+    }
+    i += 1;
+    // System.out.println(i);
+    int age = 13; // local variable
+
+    age *= 13; // 13 * 13
+    // age = age * 13;
+    age /= 13; // 169 / 13
+    // age = age / 13;
+
+    boolean isAdult = age >= 18; // new way to determine boolean value
+    Lambda lambda = Lambda.ageValueOf(14);
+    lambda.age = 12; //
+    lambda.isAdult(); // false
+
+    Integer integer1 = Integer.valueOf(13);
+
+    Double double1 = Double.valueOf(13.0);
+    Double double2 = new Double("13.0");
+    Double double3 = Double.valueOf("13.0");
+
+    Lambda lambda2 = Lambda.ageValueOf(13);
+    Lambda lambda3 = Lambda.ageValueOf("13");
+
+    
   }
+
+  public static Lambda ageValueOf(int age) {
+    return new Lambda(age);
+  }
+
+  public static Lambda ageValueOf(String age) {
+    return new Lambda(Integer.valueOf(age));
+  }
+
+  public boolean isAdult() {
+    // Early Return
+    if (this.age >= 18) {
+      return true;
+    }
+    return false;
+  }
+
 }

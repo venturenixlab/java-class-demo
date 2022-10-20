@@ -1,6 +1,7 @@
 package com.vtxlab.app;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.vtxlab.infra.Foundation;
@@ -34,6 +35,7 @@ public class Helloworld {
     System.out.println(sb.append("class").toString());
 
     Foundation.println("Testing Self-build Java Library");
+    Foundation.print(s);
 
   }
 }

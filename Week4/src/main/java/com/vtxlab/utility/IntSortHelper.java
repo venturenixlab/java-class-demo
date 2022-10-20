@@ -1,6 +1,6 @@
 package com.vtxlab.utility;
 
 @FunctionalInterface
-public interface SortHelper {
+public interface IntSortHelper {
   void sort(int[] arr);
 }
