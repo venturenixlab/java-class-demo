@@ -1,9 +1,13 @@
 package com.vtxlab.app;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Deque;
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 public class DemoHashMap {
   public static void main(String[] args) {
