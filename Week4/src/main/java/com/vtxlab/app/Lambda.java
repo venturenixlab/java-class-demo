@@ -7,7 +7,6 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import com.vtxlab.interfaces.MathCalculator;
 import com.vtxlab.interfaces.MathMultiOperation;
@@ -180,8 +179,6 @@ public class Lambda {
 
     Lambda lambda2 = Lambda.ageValueOf(13);
     Lambda lambda3 = Lambda.ageValueOf("13");
-
-    
   }
 
   public static Lambda ageValueOf(int age) {

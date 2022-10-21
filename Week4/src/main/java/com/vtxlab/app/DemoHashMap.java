@@ -1,13 +1,9 @@
 package com.vtxlab.app;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Deque;
 import java.util.Hashtable;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
 
 public class DemoHashMap {
   public static void main(String[] args) {
@@ -44,7 +40,7 @@ public class DemoHashMap {
     });
 
     System.out.println("-------------Hash table--------------");
-    for (Map.Entry m : ht.entrySet()) {
+    for (Map.Entry<Integer, String> m : ht.entrySet()) {
       System.out.println(m.getKey() + " " + m.getValue());
     }
 

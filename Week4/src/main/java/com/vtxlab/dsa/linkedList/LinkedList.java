@@ -1,6 +1,11 @@
 package com.vtxlab.dsa.linkedList;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import com.vtxlab.dsa.linkedList.singly.Node;
 
@@ -22,7 +27,6 @@ public class LinkedList {
     // Store head node
     Node temp = head;
     Node prev = null;
-    Vector
 
     // If first node data == key, early return. Reduce Complexity.
     // O(1)
@@ -72,9 +76,50 @@ public class LinkedList {
 
     System.out.println("");
     LinkedList.print(linkedList);
+    Double double1 = Double.valueOf(12.0);
 
     System.out.println("");
     System.out.println(linkedList.head.getNext().getNext().getData());
+
+    Set<Integer> integers = new HashSet<>();
+    integers.add(100);
+    integers.add(5);
+    integers.add(213332);
+    integers.add(200);
+    integers.add(100);
+    integers.add(21);
+    System.out.println(integers);
+
+    List<Integer> integers2 = new ArrayList<>();
+    integers2.add(100);
+    integers2.add(5);
+    integers2.add(213332);
+    integers2.add(200);
+    integers2.add(100);
+    integers2.add(21);
+    System.out.println(integers2);
+
+    Deque<String> deque = new java.util.LinkedList<>();
+    // We can add elements to the queue
+
+    // Add at the last
+    deque.add("Element 1 (Tail)");
+
+    // Add at the first
+    deque.addFirst("Element 2 (Head)");
+
+    // Add at the last
+    deque.addLast("Element 3 (Tail)");
+
+    // Add at the first
+    deque.push("Element 4 (Head)");
+    deque.offer(null);
+
+    System.out.println();
+
+    deque.removeFirst();
+    Collections.sort(null);
+
 
   }
 }
