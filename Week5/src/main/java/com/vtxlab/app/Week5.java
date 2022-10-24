@@ -88,6 +88,7 @@ public class Week5 {
     // Collections.sort(products, new SortByColor());
 
     System.out.println("Product After Sorting: " + products);
+
   }
 
   public static Comparator<Customer> getSorting(int type) {
