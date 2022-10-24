@@ -16,6 +16,8 @@ import com.vtxlab.utility.IntSortHelper;
 import com.vtxlab.utility.IntSortHolder;
 import com.vtxlab.utility.SortUtil;
 
+import lombok.Getter;
+
 public class Lambda {
 
   private int age;
@@ -179,6 +181,8 @@ public class Lambda {
 
     Lambda lambda2 = Lambda.ageValueOf(13);
     Lambda lambda3 = Lambda.ageValueOf("13");
+
+    
   }
 
   public static Lambda ageValueOf(int age) {
