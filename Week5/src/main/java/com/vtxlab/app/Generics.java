@@ -1,7 +1,5 @@
 package com.vtxlab.app;
 
-import java.util.Collections;
-
 import com.vtxlab.model.generics.Circle;
 import com.vtxlab.model.generics.Customer;
 import com.vtxlab.model.generics.IntegerHolder;
@@ -49,5 +47,17 @@ public class Generics {
     Shape.calcArea(new Circle(3));
     Shape.calcArea(new Circle(3));
 
+    int[] x = { 1, 2, 3 };
+    int[] b = x;
+
+    testArray(b);
+
+    for (int a : b) {
+      System.out.println(a);
+    } // print 1 12 3
+  }
+
+  public static void testArray(int[] v) {
+    v[1] = 12;
   }
 }
