@@ -110,6 +110,5 @@ public class Lambda {
         System.out.println(name);
       }
     }
-
   }
 }

@@ -15,6 +15,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
 
 import com.vtxlab.model.customer.Customer;
 
@@ -22,6 +23,7 @@ public class Lambda2 {
 
   /**
    * TBC.
+   * 
    * @param customer tbc
    * @return tbc
    */
@@ -171,6 +173,13 @@ public class Lambda2 {
     // Team+timestamp+ipaddres+"5"
     // 10020221028111002999900000
     //
+
+    long streamCount = Stream.of(1, 2, 3).map(i -> {
+      System.out.println(i); // didnot print i
+      return i + 1;
+    }).count();
+
+    System.out.println(streamCount);
 
   }
 }

@@ -88,7 +88,6 @@ public class Week5 {
     // Collections.sort(products, new SortByColor());
 
     System.out.println("Product After Sorting: " + products);
-    
 
   }
 
