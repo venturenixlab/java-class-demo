@@ -10,6 +10,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import lombok.var;
+
 public class Lambda {
   public static void main(String[] args) {
     Map<Integer, Integer> nameLengthMap = new HashMap<>();
@@ -93,5 +95,18 @@ public class Lambda {
     // for (Map.Entry<String, Integer> abc : ages.entrySet()) {
     // System.out.println("dosomething else");
     // }
+
+    List<String> names2 = Arrays.asList("Alex", "Amy", "Ben", "Charlotte", "Dicky");
+
+    //
+    Predicate<String> startsWithA = names2 -> names2.startsWith("A");
+
+    if (startsWithA.test("Alex")) {
+      System.out.println("Yes");
+    }
+    
+    String string = "abc";
+    string = "123";
+
   }
 }
