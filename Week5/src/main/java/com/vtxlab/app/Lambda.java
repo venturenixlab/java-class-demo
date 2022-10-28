@@ -99,14 +99,17 @@ public class Lambda {
     List<String> names2 = Arrays.asList("Alex", "Amy", "Ben", "Charlotte", "Dicky");
 
     //
-    Predicate<String> startsWithA = names2 -> names2.startsWith("A");
+    Predicate<String> startsWithA = n -> n.startsWith("A");
 
     if (startsWithA.test("Alex")) {
       System.out.println("Yes");
     }
-    
-    String string = "abc";
-    string = "123";
+
+    for (String name : names2) {
+      if (startsWithA.test(name)) {
+        System.out.println(name);
+      }
+    }
 
   }
 }

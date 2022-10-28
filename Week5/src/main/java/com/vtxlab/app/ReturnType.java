@@ -16,7 +16,8 @@ public class ReturnType {
   }
 
   public static void main(String[] args) {
-    //System.out.print(void.class);
+    // System.out.print(void.class);
     System.out.println(print(10));
+    ReturnType boy = new ReturnType();
   }
 }
