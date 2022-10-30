@@ -1,6 +1,7 @@
 package com.vtxlab.app;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public class Box<T> {
   // T stands for "Type", naming convention only.
@@ -28,5 +29,8 @@ public class Box<T> {
     Box<int[]> intArrayBox = new Box<>();
     intArrayBox.set(new int[] { 1, 2, 3 });
     System.out.println(Arrays.toString(intArrayBox.get())); // prints [1,2,3]
+
+    Optional<String> string = Optional.of("2");
+    
   }
 }

@@ -52,12 +52,14 @@ public class Streams {
     List<Integer> numberlist = Arrays.asList(9992, 2121, 2184, 5539, 3120);
 
     Optional<Integer> optional = numberlist.stream()
-        .min((o1, o2) -> o1.compareTo(o2)); // terminal operation
+        .max((o1, o2) -> o1.compareTo(o2)); // terminal operation
 
     optional.ifPresent(e -> {
       System.out.println(e);
     });
 
+    Optional<String> opt1 = Optional.ofNullable("John");
+    String s = opt1.orElseGet(null);
     // System.out.println(filteredNames); // [Alex]
   }
 }

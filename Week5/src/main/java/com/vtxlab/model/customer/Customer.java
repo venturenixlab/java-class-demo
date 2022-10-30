@@ -1,24 +1,18 @@
 package com.vtxlab.model.customer;
 
 import java.time.LocalDate;
-import java.util.Comparator;
-
-import javax.script.Compilable;
-
-import com.vtxlab.model.product.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-// Annotations
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Customer implements Comparable<Customer> {
 
   private int id;

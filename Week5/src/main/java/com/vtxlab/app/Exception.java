@@ -24,8 +24,5 @@ public class Exception {
 
     Exception e = Exception.builder().age(12).name("MARY").build(); // constructor
     Exception e2 = new Exception(13, "Peter");
-
-    String s = "123";
-    s = "abc";
   }
 }
