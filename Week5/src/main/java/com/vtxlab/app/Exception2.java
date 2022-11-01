@@ -11,7 +11,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class Exception {
+public class Exception2 {
   int age;
   String name;
 
@@ -22,9 +22,8 @@ public class Exception {
     List<String> lines = Files.readAllLines(filePath);
     System.out.println(lines);
 
-    Exception e = Exception.builder().age(12).name("MARY").build(); // constructor
-    Exception e2 = new Exception(13, "Peter");
+    Exception2 e = Exception2.builder().age(12).name("Mary").build();
+    Exception2 e2 = new Exception2(13, "Peter");
 
-    
   }
 }
