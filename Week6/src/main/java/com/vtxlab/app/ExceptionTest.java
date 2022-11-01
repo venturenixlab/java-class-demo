@@ -7,11 +7,10 @@ public class ExceptionTest {
 
   public static int divide() {
     try {
-      return 9 / 0; // error
+      return 9 / 0; // runtime unchecked exception, not necessary to handle
     } catch (ArithmeticException e) {
       return 0 / 9;
     }
-
   }
 
   public static void main(String[] args) throws MobileBackendException {
