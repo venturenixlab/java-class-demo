@@ -35,7 +35,6 @@ class Name {
   }
 }
 
-
 class Animal {
 
   private int age;
@@ -45,7 +44,8 @@ class Animal {
 
   // Empty Constructor
   // if there is no constructor in this class, empty constructor implicitly exists
-  Animal() {}
+  Animal() {
+  }
 
   // if we declare a non-empty constructor, then the implicit empty constructor
   // will be no longer exist
@@ -87,11 +87,10 @@ class Animal {
   }
 }
 
-
-class DemoDataType {
+public class DemoDataType {
   String firstname;
 
-  public static void main(String[] a) {
+  public static void main(String[] args) {
 
     // Start to execute
     Animal dog = new Animal(); // by empty constructor

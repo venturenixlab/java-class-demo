@@ -29,10 +29,7 @@ public class CustomException extends Exception {
   }
 
   public static void main(String[] args) throws Exception {
-
     test(); // no error
     test2(); //
-
-
   }
 }
