@@ -1,0 +1,46 @@
+{
+  "name": "abc",
+  "human": [
+    {
+      "name": "\"Java is easy\"",
+      
+      "age": 3,
+      "isMale": true,
+      "address": {
+        "addrLine1": "somewhere",
+        "addrLine2": "somewhere",
+        "addrLine3": "somewhere"
+      },
+      "animals": [
+        {
+          "name": "bobby",
+          "age": 5,
+          "type": "Dog"
+        },
+        {
+          "name": "jenny",
+          "age": 4,
+          "type": "Cat"
+        }
+      ]
+    },
+    {
+      "name": "Mary",
+      "age": 16,
+      "isMale": true,
+      "address": null,
+      "animals": [
+        {
+          "name": "bobby",
+          "age": 5,
+          "type": "Dog"
+        },
+        {
+          "name": "jenny",
+          "age": 4,
+          "type": "Cat"
+        }
+      ]
+    }
+  ]
+}

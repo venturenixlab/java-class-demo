@@ -1,0 +1,30 @@
+server: 123
+# no comma is allowed
+cryptoData:
+  targetUrl: "www.xxx.com/prices"
+  timeout: 3000 # ms
+  method: "GET"
+  hex: 0x12d4 #evaluates to 4820
+  octal: 023332 #evaluates to 9946
+  nan: .NAN
+
+customer:
+  name: "John"
+  age: 12
+  boolean: true
+  nullable: null
+  address:
+    addressline1: "some"
+    addressline2: "some"
+    addressline3: "some"
+
+employees:
+  - john:
+      name: Dan D. Veloper
+      job: Developer
+      team: DevOps
+  - dora:
+      name: Dora D. Veloper
+      job: Project Manager
+      team: Web Subscriptions
+

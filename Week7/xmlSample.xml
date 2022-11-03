@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+  <customers>
+    <customer>
+      <name>John</name>
+      <age>12</age>
+      <phone></phone>
+    </customer>
+    <customer>
+      <name>Mary</name>
+      <age>10</age>
+      <phone>123456789</phone>
+    </customer>
+  </customers>
+  <!-- Add your comment here -->
+</html>
