@@ -10,6 +10,5 @@ public class Parent {
 
   protected String getName() {
     return "Sunny";
-    Math.log(0)
   }
 }
