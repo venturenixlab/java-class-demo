@@ -50,10 +50,10 @@ CREATE TABLE BONUS (
 -- Write an SQL query to print the name of employees having the highest salary in each department.
 
 -- Task 4:
--- Write an SQL query to fetch the list of employees with the same salary.
+-- Write an SQL query to fetch the list of employees with the same base salary.
 
 -- Task 5:
--- Write an SQL query to find the worker names with salaries + bonus in 2021
+-- Write an SQL query to find the worker names with highest salaries + bonus in 2021
 
 -- Task 6 (Please complete Task 1-5 first):
 -- Try to delete all the records in table WORKER
