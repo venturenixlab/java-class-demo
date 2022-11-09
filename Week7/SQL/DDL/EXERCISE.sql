@@ -51,4 +51,4 @@ employee_id  start_date  end_date    job_id      department_id
 9. Write a query to find the employee ID, job title, number of days between ending date and starting date for all jobs in department 30.
 10. Write a query to display all department name, manager name, and city.
 12. Create table JOBS
-13. Write a query to display the average salary of JOB ID.
+13. Write a query to display the average salary of each department.

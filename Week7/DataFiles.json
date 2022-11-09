@@ -3,7 +3,6 @@
   "human": [
     {
       "name": "\"Java is easy\"",
-      
       "age": 3,
       "isMale": true,
       "address": {
