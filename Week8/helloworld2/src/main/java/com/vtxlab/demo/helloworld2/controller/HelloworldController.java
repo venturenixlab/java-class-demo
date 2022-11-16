@@ -7,6 +7,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -104,16 +107,21 @@ public class HelloworldController {
   public Boolean createString(@PathVariable String name) {
     return helloworldService.createString(name);
   }
-
+  
   @GetMapping(value = { "/giftlist" })
-  public List<String> getAllString() {
-    return helloworldService.getAllString();
+  public ResponseEntity<List<String>> getAllString() {
+    try {
+      List<String> strings = helloworldService.getAllString();
+      return ResponseEntity.ok().body(strings);
+    } catch (Exception e) {
+      return ResponseEntity.badRequest().body(new ArrayList<>());
+    }
   }
 
   @DeleteMapping(value = { "/giftlist" })
   public List<String> deleteAll() {
     if (helloworldService.deleteAll()) {
-      return getAllString();
+      return helloworldService.getAllString();
     }
     return new ArrayList<>();
   }
@@ -131,7 +139,7 @@ public class HelloworldController {
   // Requirement: get all string from strings starting from t or T
   @GetMapping(value = { "/giftlist/tStrings" })
   public List<String> getStringsStartFromT() {
-    return this.getAllString().stream()
+    return helloworldService.getAllString().stream()
         .map(e -> e.substring(0, 2))
         .filter(e -> e.toUpperCase().startsWith("T"))
         .collect(Collectors.toList());
@@ -147,11 +155,9 @@ public class HelloworldController {
     return whatsappService.sendMessage();
   }
 
-  // Update the first element of the strings list 
-  @PatchMapping(value = { "/giftlist/firstElement" })
-  public String updateFirst(String element) {
-    
+  // Update the first element of the strings list
+  @PatchMapping(value = { "/giftlist/firstElement/{element}" })
+  public String updateFirst(@PathVariable String element) {
+    return helloworldService.updateFirst(element);
   }
-
-
 }

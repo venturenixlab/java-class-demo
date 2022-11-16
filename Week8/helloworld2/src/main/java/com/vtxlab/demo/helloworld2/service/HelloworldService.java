@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Service //
 public class HelloworldService {
 
+  // Our database
   private static final List<String> strings = new ArrayList<>();
 
   @Value("${string-length.max.helloworld}")
@@ -55,6 +56,17 @@ public class HelloworldService {
       return strings;
     }
     return strings; // Error Response (Code, Msg)
+  }
+
+  public String updateFirst(String element) {
+    // update first element if it exists
+    if (strings.isEmpty()) {
+      strings.add(element);
+      return element;
+    }
+    // add first element if it does not exist
+    strings.set(0, element);
+    return element;
   }
 
   // 100 methods here...
