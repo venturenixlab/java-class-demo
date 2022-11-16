@@ -43,8 +43,6 @@ public class ReHashMap {
     // map.computeIfPresent(null, null)
 
     Map<Integer, NumberHolder<Number>> mapOfList = new HashMap<>();
-    Integer
-    mapOfList.put(1, integers);
 
   }
 }

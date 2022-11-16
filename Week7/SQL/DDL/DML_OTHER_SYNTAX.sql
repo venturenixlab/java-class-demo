@@ -4,8 +4,7 @@ CREATE TABLE worker_clone LIKE worker;
 
 -- Clone data, if the table structure are same
  -- You can add where clause to filter targeted data set to be cloned.
-INSERT INTO worker_clone
-SELECT * FROM worker;
+INSERT INTO worker_clone SELECT * FROM worker;
 
 -- return current date
 SELECT CURDATE();

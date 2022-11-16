@@ -3,7 +3,7 @@ location_id  street_address        postal_code  city        state_province  coun
 -----------  --------------------  -----------  ----------  --------------  ----------
 1000         1297 Via Cola di Rie  989          Roma                        IT
 1100         93091 Calle della Te  10934        Venice                      IT
-1200         2017 Shinjuku-ku      1689         Tokyo       Tokyo Prefectu  JP
+1200         2017 Shinjuku-ku      1689         Tokyo       Tokyo Pref      JP
 1400         2014 Jabberwocky Rd   26192        Southlake   Texas           US
 
 table: COUNTRIES

@@ -9,11 +9,11 @@ Select substring(FIRST_NAME,1,3) from Worker;
 -- Remove the space from the right hand side of the string
 Select RTRIM(FIRST_NAME) from Worker;
 -- Remove the space from the left hand side of the string
-Select RTRIM(FIRST_NAME) from Worker;
+Select LTRIM(FIRST_NAME) from Worker;
 -- Remove the space from the string
 Select TRIM(FIRST_NAME) from Worker;
 
 -- Replace
 Select REPLACE(FIRST_NAME,'a','A') from Worker;
 -- Concat
-Select CONCAT(FIRST_NAME,'a','A') from Worker;
+Select CONCAT(FIRST_NAME,'a') from Worker;
