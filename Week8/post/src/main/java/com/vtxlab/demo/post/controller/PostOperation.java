@@ -3,6 +3,7 @@ package com.vtxlab.demo.post.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,10 @@ public interface PostOperation {
 
   @PostMapping(value = "/post")
   ResponseEntity<ApiResponse<Post>> savePost(@RequestBody Post post)
+      throws Exception;
+
+  @DeleteMapping(value = "/post/id/{id}")
+  ResponseEntity<ApiResponse<Post>> deletePostById(@PathVariable Long id)
       throws Exception;
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.vtxlab.demo.post.entity.Post;
 import com.vtxlab.demo.post.exception.KeyExistException;
+import com.vtxlab.demo.post.exception.KeyNotFoundException;
 import com.vtxlab.demo.post.repository.PostRepository;
 import com.vtxlab.demo.post.service.PostService;
 
@@ -37,5 +38,16 @@ public class LihkgPostService implements PostService {
       return postRepository.save(post);
     }
     throw new KeyExistException();
+  }
+
+  @Override
+  public Post deletePostById(Long id)
+      throws IllegalArgumentException {
+    Post post = postRepository.findById(id).orElse(null);
+    if (post != null) {
+      postRepository.deleteById(id);
+      return post;
+    }
+    throw new KeyNotFoundException();
   }
 }

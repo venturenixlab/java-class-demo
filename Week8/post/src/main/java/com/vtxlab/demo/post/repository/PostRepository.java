@@ -8,4 +8,5 @@ import com.vtxlab.demo.post.entity.Post;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
+  
 }

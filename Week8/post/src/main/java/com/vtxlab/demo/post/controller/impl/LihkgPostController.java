@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vtxlab.demo.post.controller.PostOperation;
 import com.vtxlab.demo.post.entity.Post;
-import com.vtxlab.demo.post.exception.KeyExistException;
 import com.vtxlab.demo.post.respsonse.ApiResponse;
 import com.vtxlab.demo.post.service.PostService;
 
@@ -40,9 +39,19 @@ public class LihkgPostController implements PostOperation {
   public ResponseEntity<ApiResponse<Post>> savePost(Post post)
       throws Exception {
     ApiResponse<Post> response = ApiResponse.<Post>builder() //
-        .code(HttpStatus.OK.value())
+        .code(HttpStatus.OK.value()) // 200
         .message("OK")
         .data(postService.savePost(post))
+        .build();
+    return ResponseEntity.ok().body(response);
+  }
+
+  @Override
+  public ResponseEntity<ApiResponse<Post>> deletePostById(Long id) {
+    ApiResponse<Post> response = ApiResponse.<Post>builder() //
+        .code(HttpStatus.OK.value()) // 200
+        .message("OK")
+        .data(postService.deletePostById(id))
         .build();
     return ResponseEntity.ok().body(response);
   }

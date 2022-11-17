@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.vtxlab.demo.post.entity.Post;
 import com.vtxlab.demo.post.exception.KeyExistException;
+import com.vtxlab.demo.post.exception.KeyNotFoundException;
 
 public interface PostService {
   List<Post> findAllPost();
@@ -13,5 +14,7 @@ public interface PostService {
   List<Post> saveAllPost(List<Post> posts);
 
   Post savePost(Post post) throws KeyExistException;
+
+  Post deletePostById(Long id);
 
 }
