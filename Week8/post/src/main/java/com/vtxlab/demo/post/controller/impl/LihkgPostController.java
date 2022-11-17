@@ -38,8 +38,8 @@ public class LihkgPostController implements PostOperation {
 
   @Override
   public ResponseEntity<ApiResponse<Post>> savePost(Post post)
-      throws KeyExistException {
-    ApiResponse<Post> response = ApiResponse.<Post>builder()//
+      throws Exception {
+    ApiResponse<Post> response = ApiResponse.<Post>builder() //
         .code(HttpStatus.OK.value())
         .message("OK")
         .data(postService.savePost(post))
