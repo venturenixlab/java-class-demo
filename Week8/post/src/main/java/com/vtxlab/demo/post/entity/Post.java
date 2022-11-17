@@ -8,11 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // Setter, Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Posts")
 @Entity
+@Table(name = "Posts")
 public class Post {
   @Id
   private Long id;
@@ -20,4 +20,5 @@ public class Post {
   private String title;
 
   private String content;
+  // getter, setter, constructor ...
 }
