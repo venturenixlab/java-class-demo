@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.vtxlab.demo.post.entity.Post;
 import com.vtxlab.demo.post.model.UserDto;
-import com.vtxlab.demo.post.respsonse.ApiResponse;
+import com.vtxlab.demo.post.response.ApiResponse;
 
 @RequestMapping(value = "/default")
 public interface PostOperation {

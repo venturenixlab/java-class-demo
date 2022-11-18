@@ -17,11 +17,14 @@ import lombok.NoArgsConstructor;
 public class Post {
   @Id
   private Long id;
-
-  @Column(name = "content")
-  private String content;
   
   @Column(name = "title")
   private String title;
+
+  @Column(name = "content")
+  private String content;
+
+  @Column(name = "user_id")
+  private String userId;
   // getter, setter, constructor ...
 }

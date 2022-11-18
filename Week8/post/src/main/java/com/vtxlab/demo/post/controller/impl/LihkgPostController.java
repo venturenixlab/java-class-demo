@@ -12,7 +12,7 @@ import com.vtxlab.demo.post.controller.PostOperation;
 import com.vtxlab.demo.post.entity.Post;
 import com.vtxlab.demo.post.model.PostDto;
 import com.vtxlab.demo.post.model.UserDto;
-import com.vtxlab.demo.post.respsonse.ApiResponse;
+import com.vtxlab.demo.post.response.ApiResponse;
 import com.vtxlab.demo.post.service.PostService;
 
 @RestController

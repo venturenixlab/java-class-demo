@@ -1,4 +1,4 @@
-package com.vtxlab.demo.post.respsonse;
+package com.vtxlab.demo.post.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 // CameCase
 public class UserDto {
 
+  
   private String userId;
 
   private List<PostDto> posts;

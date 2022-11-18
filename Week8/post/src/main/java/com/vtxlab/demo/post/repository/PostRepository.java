@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.vtxlab.demo.post.entity.Post;
 
-/**
- * 
- */
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
@@ -24,6 +21,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
    */
   // equals to the exact value
   List<Post> findByTitle(String title);
+
+  List<Post> findByTitleOrderByIdDesc(String title);
 
   List<Post> findByTitleIgnoreCase(String title);
 
@@ -55,7 +54,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
   List<Post> findPostsByUserId(@Param("userId") String userId);
 
   // JPQL
-  //@Query(value = "select u from users u, posts p where u.user_id=p.user_id and u.user_id = :userId")
-  //List<Post> findPostsByUserIdNotNative(@Param("userId") String userId);
+  // column name should be lowercase
+  @Query("select p from Post p where p.id = :postid")
+  List<Post> findPostsByIdByJpql(@Param("postid") Long id);
 
 }
