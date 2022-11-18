@@ -36,7 +36,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
   List<Post> findByContentIsContaining(String content);
 
-  List<Post> findByContentIsContains(String content);
+  List<Post> findByContentContains(String content);
 
   // something% , %something, %something%
   // you provide % in service layer yourself
@@ -50,7 +50,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
   List<Post> findByTitleOrId(String title, Long id);
 
-  @Query("select p.title as title, p.content as content from users u, posts p where u.user_id=p.user_id and u.user_id = :userId")
+  @Query(value = "select p.title as title, p.content as content from users u, posts p where u.user_id=p.user_id and u.user_id = :userId", nativeQuery = true)
   List<PostDto> findPostsByUserId(@Param("userId") String userId);
 
 }
