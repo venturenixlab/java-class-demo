@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.vtxlab.demo.post.entity.Post;
-import com.vtxlab.demo.post.model.PostDto;
 
 /**
  * 
@@ -50,7 +49,13 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
   List<Post> findByTitleOrId(String title, Long id);
 
-  @Query(value = "select p.title as title, p.content as content from users u, posts p where u.user_id=p.user_id and u.user_id = :userId", nativeQuery = true)
-  List<PostDto> findPostsByUserId(@Param("userId") String userId);
+  // Native SQL - Specific DBMS
+  // MySQL
+  @Query(nativeQuery = true, value = "select p.id, p.title, p.content from users u, posts p where u.user_id=p.user_id and u.user_id = :userId")
+  List<Post> findPostsByUserId(@Param("userId") String userId);
+
+  // JPQL
+  //@Query(value = "select u from users u, posts p where u.user_id=p.user_id and u.user_id = :userId")
+  //List<Post> findPostsByUserIdNotNative(@Param("userId") String userId);
 
 }

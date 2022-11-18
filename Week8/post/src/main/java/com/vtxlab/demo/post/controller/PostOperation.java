@@ -17,29 +17,29 @@ import com.vtxlab.demo.post.respsonse.ApiResponse;
 @RequestMapping(value = "/default")
 public interface PostOperation {
 
-  @GetMapping(value = "/posts")
-  List<Post> findAllPost();
+    @GetMapping(value = "/posts")
+    List<Post> findAllPost();
 
-  @GetMapping(value = "/posts/id/{id}")
-  Post findPostById(@PathVariable Long id);
+    @GetMapping(value = "/posts/id/{id}")
+    Post findPostById(@PathVariable Long id);
 
-  @PostMapping(value = "/posts")
-  List<Post> saveAllPost(@RequestBody List<Post> posts);
+    @PostMapping(value = "/posts")
+    List<Post> saveAllPost(@RequestBody List<Post> posts);
 
-  @PostMapping(value = "/post")
-  ResponseEntity<ApiResponse<Post>> savePost(@RequestBody Post post)
-      throws Exception;
+    @PostMapping(value = "/post")
+    ResponseEntity<ApiResponse<Post>> savePost(@RequestBody Post post)
+            throws Exception;
 
-  @DeleteMapping(value = "/post/id/{id}")
-  ResponseEntity<ApiResponse<Post>> deletePostById(@PathVariable Long id)
-      throws Exception;
+    @DeleteMapping(value = "/post/id/{id}")
+    ResponseEntity<ApiResponse<Post>> deletePostById(@PathVariable Long id)
+            throws Exception;
 
-  @GetMapping(value = "/post/title/{title}")
-  ResponseEntity<ApiResponse<List<Post>>> findPostByTitle(
-      @PathVariable String title);
+    @GetMapping(value = "/post/title/{title}")
+    ResponseEntity<ApiResponse<List<Post>>> findPostByTitle(
+            @PathVariable String title);
 
-  @GetMapping(value = "/posts/userId/{userId}")
-  ResponseEntity<ApiResponse<UserDto>> findPostsByUserId(
-      @PathVariable String userId);
+    @GetMapping(value = "/posts/userId/{userId}")
+    ResponseEntity<ApiResponse<UserDto>> findPostsByUserId(
+            @PathVariable String userId);
 
 }

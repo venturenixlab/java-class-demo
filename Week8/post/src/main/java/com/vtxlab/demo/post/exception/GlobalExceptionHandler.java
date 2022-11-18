@@ -38,7 +38,5 @@ public class GlobalExceptionHandler<T> {
     return ResponseEntity.badRequest().body(new ApiResponse<>(13999,
         "Exception, sorry", null));
   }
-
-
   
 }

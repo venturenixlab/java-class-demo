@@ -1,5 +1,6 @@
 package com.vtxlab.demo.post.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,13 @@ import com.vtxlab.demo.post.model.PostDto;
 import com.vtxlab.demo.post.repository.PostRepository;
 import com.vtxlab.demo.post.service.PostService;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author vincent.lau
  */
 @Service
+@Slf4j
 public class LihkgPostService implements PostService {
 
   @Autowired // = new PostRepository();
@@ -62,6 +66,20 @@ public class LihkgPostService implements PostService {
 
   @Override
   public List<PostDto> findPostsByUserId(String userId) {
-    return postRepository.findPostsByUserId(userId);
+    List<PostDto> postDtos = new ArrayList<>();
+
+    // return List<Post>, and convert to List<PostDto>
+    log.info("list.size {}", postRepository.findPostsByUserId(userId).size());
+
+    postRepository.findPostsByUserId(userId).forEach(e -> {
+      PostDto postDto = PostDto.builder() //
+          .content(e.getContent())
+          .title(e.getTitle())
+          .build();
+      // add the dto to list
+      log.info("Start to proceed, postDto: {}", postDto.toString());
+      postDtos.add(postDto);
+    });
+    return postDtos;
   }
 }
