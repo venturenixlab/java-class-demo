@@ -8,9 +8,13 @@ import org.springframework.stereotype.Service;
 import com.vtxlab.demo.post.entity.Post;
 import com.vtxlab.demo.post.exception.KeyExistException;
 import com.vtxlab.demo.post.exception.KeyNotFoundException;
+import com.vtxlab.demo.post.model.PostDto;
 import com.vtxlab.demo.post.repository.PostRepository;
 import com.vtxlab.demo.post.service.PostService;
 
+/**
+ * @author vincent.lau
+ */
 @Service
 public class LihkgPostService implements PostService {
 
@@ -48,6 +52,16 @@ public class LihkgPostService implements PostService {
       postRepository.deleteById(id);
       return post;
     }
-    throw new KeyNotFoundException();
+    throw new KeyNotFoundException(); // Runtime
+  }
+
+  @Override
+  public List<Post> findPostByTitle(String title) {
+    return postRepository.findByTitle(title);
+  }
+
+  @Override
+  public List<PostDto> findPostsByUserId(String userId) {
+    return postRepository.findPostsByUserId(userId);
   }
 }

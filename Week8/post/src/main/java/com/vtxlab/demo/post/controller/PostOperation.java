@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.vtxlab.demo.post.entity.Post;
+import com.vtxlab.demo.post.model.UserDto;
 import com.vtxlab.demo.post.respsonse.ApiResponse;
 
 @RequestMapping(value = "/default")
@@ -32,5 +33,13 @@ public interface PostOperation {
   @DeleteMapping(value = "/post/id/{id}")
   ResponseEntity<ApiResponse<Post>> deletePostById(@PathVariable Long id)
       throws Exception;
+
+  @GetMapping(value = "/post/title/{title}")
+  ResponseEntity<ApiResponse<List<Post>>> findPostByTitle(
+      @PathVariable String title);
+
+  @GetMapping(value = "/posts/userId/{userId}")
+  ResponseEntity<ApiResponse<UserDto>> findPostsByUserId(
+      @PathVariable String userId);
 
 }

@@ -4,8 +4,11 @@ import java.util.List;
 
 import com.vtxlab.demo.post.entity.Post;
 import com.vtxlab.demo.post.exception.KeyExistException;
-import com.vtxlab.demo.post.exception.KeyNotFoundException;
+import com.vtxlab.demo.post.model.PostDto;
 
+/**
+ * @author vincent.lau
+ */
 public interface PostService {
   List<Post> findAllPost();
 
@@ -17,4 +20,7 @@ public interface PostService {
 
   Post deletePostById(Long id);
 
+  List<Post> findPostByTitle(String title);
+
+  List<PostDto> findPostsByUserId(String userId);
 }

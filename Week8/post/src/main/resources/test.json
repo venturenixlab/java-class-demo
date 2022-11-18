@@ -1,0 +1,12 @@
+{
+  "userId" : "john123",
+  "posts" : [{
+
+  },{
+
+  }]
+}
+
+class UserDto
+String userId;
+List<Post> posts;

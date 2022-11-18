@@ -1,5 +1,6 @@
 package com.vtxlab.demo.post.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -17,8 +18,10 @@ public class Post {
   @Id
   private Long id;
 
-  private String title;
-
+  @Column(name = "content")
   private String content;
+  
+  @Column(name = "title")
+  private String title;
   // getter, setter, constructor ...
 }
