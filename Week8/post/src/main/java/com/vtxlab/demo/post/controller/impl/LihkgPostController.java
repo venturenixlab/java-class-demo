@@ -77,6 +77,7 @@ public class LihkgPostController implements PostOperation {
   @Override
   public ResponseEntity<ApiResponse<UserDto>> findPostsByUserId(
       String userId) {
+    
     // TBC. if userId is null, early return
     List<PostDto> postDtos = postService.findPostsByUserId(userId);
     UserDto userDto = UserDto.builder() //

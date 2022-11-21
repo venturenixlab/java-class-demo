@@ -50,8 +50,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
   // Native SQL - Specific DBMS
   // MySQL
-  @Query(nativeQuery = true, value = "select p.id, p.title, p.content from users u, posts p where u.user_id=p.user_id and u.user_id = :userId")
-  List<Post> findPostsByUserId(@Param("userId") String userId);
+  @Query(nativeQuery = true, value = "select p.id, p.title, p.content from users u, posts p where u.user_id=p.user_id and u.user_id = :user_id")
+  List<Post> findPostsByUserId(@Param("userId") String abc);
 
   // JPQL
   // column name should be lowercase
