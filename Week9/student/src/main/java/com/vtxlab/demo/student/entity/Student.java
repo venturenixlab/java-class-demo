@@ -1,5 +1,6 @@
 package com.vtxlab.demo.student.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,8 +19,10 @@ public class Student {
   @Id
   private Long Id;
 
+  @Column(name = "height")
   private Double height;
 
+  @Column(name = "name")
   private String name;
 
 }

@@ -8,6 +8,6 @@ public interface StudentService {
 
   List<Student> findStudents();
 
-  Void createStudent(String name, Double height);
+  void createStudent(String name, Double height);
 
 }

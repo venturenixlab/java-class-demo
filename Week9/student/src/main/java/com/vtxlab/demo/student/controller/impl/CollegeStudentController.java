@@ -10,22 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.demo.student.controller.StudentOperation;
 import com.vtxlab.demo.student.entity.Student;
 import com.vtxlab.demo.student.service.StudentService;
+import com.vtxlab.demo.student.service.impl.CollegeStudentService;
 
 @RestController // Controller + ResponseBody
 @RequestMapping(value = "/api/v1")
 public class CollegeStudentController implements StudentOperation {
 
-  @Autowired
+  @Autowired // = new collegeStudentService();
   StudentService studentService;
 
   @Override
   public ResponseEntity<List<Student>> findStudents() {
-    return ResponseEntity.ok().body(studentService.findStudents());
+    return ResponseEntity.ok().body(studentService.findStudents()); // ok -> 200
   }
 
   @Override
   public ResponseEntity<Void> createStudent(String name, Double height) {
-    return ResponseEntity.ok().body(studentService.createStudent(name, height));
+    studentService.createStudent(name, height);
+    return ResponseEntity.noContent().build(); // noContent() -> 204
   }
 
 }

@@ -30,7 +30,7 @@ public class CollegeStudentService implements StudentService {
     return studentRepository.findAll();
   }
 
-  public Void createStudent(String name, Double height) {
-    return studentRepository.createStudent(name, height);
+  public void createStudent(String name, Double height) {
+    studentRepository.createStudent(name, height);
   }
 }
