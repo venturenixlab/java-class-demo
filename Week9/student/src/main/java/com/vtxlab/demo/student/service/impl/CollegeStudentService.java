@@ -29,4 +29,8 @@ public class CollegeStudentService implements StudentService {
   public List<Student> findStudents() {
     return studentRepository.findAll();
   }
+
+  public Void createStudent(String name, Double height) {
+    return studentRepository.createStudent(name, height);
+  }
 }
