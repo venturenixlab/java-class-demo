@@ -1,0 +1,50 @@
+21 Nov 2022
+
+Requirements:
+- Build a springboot microservice, providing APIs for a book store.
+- One API to return all books from database
+- One API to return a book by book id (provided by frontend)
+  - Seems Book Id should be unquie to represent a book and store in the database table
+- One API to create a book record (data provdied by frontend), such as Book Name, Author Name, Publication Date
+- One API to delete a book record by Id
+
+Code/Project Design:
+- Create new Table "Books" in datbase sys, consider the PK design
+- Create a springboot maven project "bookstore"
+- All APIs' return type should be ResponseEntity<...>
+- Interface design in both controller/ service/ repository layer, so that Autowird can be done by interfaces
+- All layers' bean should be injected by Autowird
+- Use JPARepository interact with MySQL
+- Adopt Lombok
+- Entity Class for Books Table
+- String for bookName and authorName
+- LocalDate for Publication Date
+  - String str = "2022-09-01";  
+  - LocalDate ldate = LocalDate.parse(str);
+- All APIs URI design comply with RestFul design
+  - /bookstore/books (Get method, return list of books)
+    - Always 200 https status even if no books returned (empty list)
+  - /bookstore/book/id/{id} (Get method, return a book)
+    - 200 https status if book(s) is found
+    - 204 https status if not found (tips: ResponseEntity.notfound())
+  - /bookstore/book/id (Post method, with RequestBody, return nothing)
+    - 201 https status if created (tips: ResponseEntity.created())
+  - /bookstore/book/id/{id} (Delete method, return Boolean)
+    - 201 https status if book(s) is deleted (return true)
+    - 400 https status if no book(s) is found (return false)
+
+Sample: List of Book 
+[
+   {
+  	"id": 1,
+  	"bookName":"Book A",
+    "bookAuthor":"Christy",
+    "publicDate":"2022-11-23"
+   },
+   {
+  	"id": 2,
+  	"bookName": "Book B",
+    "bookAuthor":"Amy",
+    "publicDate": "2019-07-30"
+   }
+]
