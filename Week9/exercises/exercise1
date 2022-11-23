@@ -27,7 +27,7 @@ Code/Project Design:
   - /bookstore/book/id/{id} (Get method, return a book)
     - 200 https status if book(s) is found
     - 204 https status if not found (tips: ResponseEntity.noContent())
-  - /bookstore/book/id (Post method, with RequestBody, return nothing)
+  - /bookstore/book (Post method, with RequestBody, return nothing)
     - 201 https status if created (tips: ResponseEntity.created())
   - /bookstore/book/id/{id} (Delete method, return Boolean)
     - 201 https status if book(s) is deleted (return true)
