@@ -1,6 +1,6 @@
 package com.vtxlab.demo.bookstore.entity;
 
-import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,37 +8,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "BOOKS")
+@Table(name = "AUTHORS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class Author {
 
-  @Id // PRIMARY KEY
+  @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "BOOK_NAME")
-  private String bookName;
+  @Column(name = "AUTHOR_NAME")
+  private String authorName;
 
-  @Column(name = "PUBLIC_DATE")
-  private LocalDate publicDate;
+  @Column(name = "AUTHOR_NAT")
+  private String nationality;
 
-  @ManyToOne(cascade = CascadeType.ALL)
-  // @JoinColumn(name = "AUTHOR_ID") // FK
-  @JoinColumn(name = "author_id")
-  // @JsonIgnore // 
-  private Author author;
+  @OneToMany(mappedBy = "author", // default LAZY
+      cascade = CascadeType.PERSIST, //
+      orphanRemoval = true)
+  private List<Book> books;
 
 }

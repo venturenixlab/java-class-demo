@@ -43,4 +43,20 @@ public class EBookService implements BookService {
     }
     return null;
   }
+
+  @Override
+  public Book updateBookById(Book book, Long id) {
+    book.setId(id);
+    return bookRepository.save(book);
+  }
+
+  @Override
+  public Book updateBookName(Long id, String bookName) {
+    if (bookRepository.existsById(id)) {
+      Book book = bookRepository.findById(id).orElse(null);
+      book.setBookName(bookName);
+      return bookRepository.save(book);
+    }
+    return null;
+  }
 }

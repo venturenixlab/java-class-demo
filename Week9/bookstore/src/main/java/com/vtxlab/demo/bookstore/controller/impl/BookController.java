@@ -59,4 +59,18 @@ public class BookController implements BookOperation {
     return ResponseEntity.noContent().build();
   }
 
+  @Override
+  public ResponseEntity<Book> updateBook(Book book, Long id) {
+    Book updatedBook = bookService.updateBookById(book, id);
+    return ResponseEntity.ok().body(updatedBook);
+  }
+
+  @Override
+  public ResponseEntity<Book> updateBookName(Long id, String bookName) {
+    Book updatedBook = bookService.updateBookName(id, bookName);
+    if (updatedBook == null) {
+      return ResponseEntity.notFound().build();
+    }
+    return ResponseEntity.ok().body(updatedBook);
+  }
 }
