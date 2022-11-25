@@ -3,6 +3,7 @@ package com.vtxlab.demo.bookstore.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,11 @@ import com.vtxlab.demo.bookstore.entity.Book;
 import com.vtxlab.demo.bookstore.repository.BookRepository;
 import com.vtxlab.demo.bookstore.service.BookService;
 
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class EBookService implements BookService {
 
   @Autowired
@@ -62,8 +67,14 @@ public class EBookService implements BookService {
 
   @Override
   public Boolean deleteBooksByAuthorId(Long authorId) {
-    // if (bookRepository.findBooksByAuthorId(authorId) > 0) {
-    bookRepository.deleteBooksByAuthorId(authorId);
-    return true;
+    Integer bookCount = bookRepository.findBooksByAuthorId(authorId);
+    log.info("bookCount={} ", bookCount);
+    
+    
+    if (bookCount > 0) {
+      bookRepository.deleteBooksByAuthorId(authorId);
+      return true;
+    }
+    return false;
   }
 }

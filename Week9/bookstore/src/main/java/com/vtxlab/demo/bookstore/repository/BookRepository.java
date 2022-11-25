@@ -25,8 +25,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
   @Query(nativeQuery = true, //
       value = "select count(*) from books b where b.author_id = :author_id")
-  @Transactional
-  @Modifying
   Integer findBooksByAuthorId(@Param("author_id") Long authorId);
-
 }
