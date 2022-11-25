@@ -59,4 +59,11 @@ public class EBookService implements BookService {
     }
     return null;
   }
+
+  @Override
+  public Boolean deleteBooksByAuthorId(Long authorId) {
+    // if (bookRepository.findBooksByAuthorId(authorId) > 0) {
+    bookRepository.deleteBooksByAuthorId(authorId);
+    return true;
+  }
 }

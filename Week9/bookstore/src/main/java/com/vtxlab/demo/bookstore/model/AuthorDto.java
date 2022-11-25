@@ -16,5 +16,5 @@ public class AuthorDto {
 
   private String nationality;
 
-  private List<BookDto> books;
+  private List<BookDto> books; // null
 }

@@ -73,4 +73,9 @@ public class BookController implements BookOperation {
     }
     return ResponseEntity.ok().body(updatedBook);
   }
+
+  @Override
+  public ResponseEntity<Boolean> deleteBookByAuthorId(Long id) {
+    return ResponseEntity.ok().body(bookService.deleteBooksByAuthorId(id));
+  }
 }

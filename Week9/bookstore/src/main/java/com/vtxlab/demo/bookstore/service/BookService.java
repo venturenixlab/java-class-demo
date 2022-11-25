@@ -18,4 +18,6 @@ public interface BookService {
   Book updateBookById(Book book, Long id);
 
   Book updateBookName(Long id, String bookName);
+
+  Boolean deleteBooksByAuthorId(Long authorId);
 }
