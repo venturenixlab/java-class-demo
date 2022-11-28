@@ -5,25 +5,29 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.sym.Name;
 import com.vtxlab.demo.bookstore.controller.AuthorOperation;
 import com.vtxlab.demo.bookstore.entity.Author;
 import com.vtxlab.demo.bookstore.model.AuthorDto;
 import com.vtxlab.demo.bookstore.model.BookDto;
 import com.vtxlab.demo.bookstore.service.AuthorService;
 
+
 @RestController
 @RequestMapping(value = "/api/v1")
 public class AuthorController implements AuthorOperation {
 
   @Autowired
+  // @Qualifier(value = "beanName")
   AuthorService authorService;
 
   @Autowired
-  ModelMapper modelmapper;
+  ModelMapper modelMapper;
 
   @Override
   public ResponseEntity<List<AuthorDto>> findAllAuthorss() {
@@ -31,7 +35,7 @@ public class AuthorController implements AuthorOperation {
         .stream() //
         .map(e -> {
           List<BookDto> books = e.getBooks().stream() //
-              .map(b -> modelmapper.map(b, BookDto.class)) //
+              .map(b -> modelMapper.map(b, BookDto.class)) //
               .collect(Collectors.toList());
 
           return new AuthorDto(e.getId(), e.getAuthorName(),
