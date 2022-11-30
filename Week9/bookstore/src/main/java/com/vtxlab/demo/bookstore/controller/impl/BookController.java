@@ -14,8 +14,11 @@ import com.vtxlab.demo.bookstore.controller.BookOperation;
 import com.vtxlab.demo.bookstore.entity.Book;
 import com.vtxlab.demo.bookstore.service.BookService;
 
+import lombok.AllArgsConstructor;
+
 @RequestMapping(value = "/api/v1")
 @RestController
+@AllArgsConstructor
 public class BookController implements BookOperation {
 
   @Autowired

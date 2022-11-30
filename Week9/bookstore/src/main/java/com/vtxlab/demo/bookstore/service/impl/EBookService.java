@@ -3,7 +3,6 @@ package com.vtxlab.demo.bookstore.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,6 @@ import com.vtxlab.demo.bookstore.entity.Book;
 import com.vtxlab.demo.bookstore.repository.BookRepository;
 import com.vtxlab.demo.bookstore.service.BookService;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
