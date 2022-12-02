@@ -5,9 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,7 +18,7 @@ import com.vtxlab.demo.greeting.service.GreetingService;
 // TDD, test driven design
 @SpringBootTest // pretend the exact Springboot Application startup situation
 // in this example, controller + service will be created in spring context
-@AutoConfigureMockMvc
+@AutoConfigureMockMvc // MockBean
 class GreetingApplicationTests {
 
 	@Autowired

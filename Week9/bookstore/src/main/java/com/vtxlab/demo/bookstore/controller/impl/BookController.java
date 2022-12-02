@@ -45,7 +45,7 @@ public class BookController implements BookOperation {
         .fromCurrentRequest()
         .buildAndExpand()
         .toUri();
-
+    
     Book rtnBook = bookService.createBook(book);
     if (rtnBook != null) {
       return ResponseEntity.created(location).body(rtnBook); // 201

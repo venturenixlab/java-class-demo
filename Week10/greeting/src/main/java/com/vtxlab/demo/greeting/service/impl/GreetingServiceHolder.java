@@ -9,7 +9,10 @@ import com.vtxlab.demo.greeting.entity.Book;
 import com.vtxlab.demo.greeting.repository.GreetingRepository;
 import com.vtxlab.demo.greeting.service.GreetingService;
 
+import lombok.AllArgsConstructor;
+
 @Service // During start up, create bean to spring context
+@AllArgsConstructor
 public class GreetingServiceHolder implements GreetingService {
 
   @Autowired
@@ -17,7 +20,13 @@ public class GreetingServiceHolder implements GreetingService {
 
   @Override
   public String greeting() {
+    // 99 lines of code ...
     return "abc";
+  }
+
+  @Override
+  public Book findBookById(Long id) {
+    return greetingRepository.findById(id).orElse(new Book());
   }
 
   @Override

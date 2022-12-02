@@ -1,5 +1,6 @@
 package com.vtxlab.demo.bookstore.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class Book implements Serializable {
+
+  private static final long serialVersionUID = 4750079787174869458L;
 
   @Id // PRIMARY KEY
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,9 +42,13 @@ public class Book {
 
   @ManyToOne(cascade = CascadeType.ALL)
   // @JoinColumn(name = "AUTHOR_ID") // FK
-  @JoinColumn(name = "author_id")
-  // @JsonManagedReference
+  @JoinColumn(name = "author_id", referencedColumnName = "id")
   @JsonIgnoreProperties("books")
   private Author author; //
+
+  public Book(String bookName, LocalDate publicDate) {
+    this.bookName = bookName;
+    this.publicDate = publicDate;
+  }
 
 }

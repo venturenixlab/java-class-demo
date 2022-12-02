@@ -9,17 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.authenticator.jaspic.AuthConfigFactoryImpl;
-import org.assertj.core.api.LocalDateAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import com.vtxlab.demo.bookstore.controller.BookOperation;
 import com.vtxlab.demo.bookstore.controller.impl.BookController;
@@ -103,7 +99,7 @@ public class BookstoreControllerUnitTest {
         new Author());
 
     // testCreateBook(book, null); // key exists, creation is not required
-    // testCreateBook(book, book); // creation success
+    //  testCreateBook(book, book); // creation success
   }
 
   private void testDeleteBookById(Long id, Book returnBook) {

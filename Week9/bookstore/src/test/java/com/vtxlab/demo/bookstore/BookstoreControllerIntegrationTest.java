@@ -48,15 +48,18 @@ class BookstoreControllerIntegrationTest {
 				.andExpect(jsonPath("$.length()").value(2))
 				.andExpect(jsonPath("$[0].bookName").value("Tommy Book"))
 				.andReturn();
-    
+
 		// String str = result.getResponse().getContentAsString();
 		// ApiResponse response = objectMapper.readValue(str, ApiResponse.class);
 		// List<Book> books = (List<Book>) response.getData();
 		// assertThat(books).hasSize(2);
-		mockMvc.perform(get("/api/v1/book"))
+		mockMvc.perform(get("/api/v1/book1"))
 				.andDo(print())
-				.andExpect(status().isMethodNotAllowed()); // 405
+				.andExpect(status().isNotFound()); // 404
 
+		mockMvc.perform(get("/api/v1/book")) // POST METHOD URI
+				.andDo(print())
+				.andExpect(status().isMethodNotAllowed()); // Should use POST
 	}
 
 }

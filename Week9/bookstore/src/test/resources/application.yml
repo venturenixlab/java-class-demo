@@ -4,11 +4,7 @@ spring:
     username: vincentlau
     password: Prun1234.
     driver-class-name: com.mysql.cj.jdbc.Driver
-  sql:
-    init:
-      schema-locations: classpath:DDL_AUTHORS.sql, classpath:DDL_BOOKS.sql
-      data-locations: classpath:DML_AUTHORS.sql, classpath:DML_BOOKS.sql
-      mode: always
+  
 spring.jpa:
   properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
   hibernate.ddl-auto: update
@@ -17,8 +13,3 @@ spring.jpa:
 server:
   port: 8090
 
-rest:
-  greeting:
-    baseUrl: http://localhost:8099
-    serviceVers: api/v1
-    serviceUrl: greeting

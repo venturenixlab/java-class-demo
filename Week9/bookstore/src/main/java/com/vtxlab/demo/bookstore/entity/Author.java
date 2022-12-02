@@ -1,5 +1,7 @@
 package com.vtxlab.demo.bookstore.entity;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +24,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Author {
+public class Author implements Serializable {
+
+  private static final long serialVersionUID = 4750079787174869458L;
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,9 +39,19 @@ public class Author {
   private String nationality;
 
   @OneToMany(mappedBy = "author", // default LAZY
-      cascade = CascadeType.PERSIST, //
-      orphanRemoval = true)
+      cascade = CascadeType.ALL //
+  )
   @JsonIgnoreProperties({ "author" })
-  private List<Book> books;
+  private List<Book> books = new ArrayList<>();
+
+  public void addBook(Book book) {
+    this.books.add(book);
+  }
+
+  public Author(Long id, String authorName, String nationality) {
+    this.id = id;
+    this.authorName = authorName;
+    this.nationality = nationality;
+  }
 
 }
