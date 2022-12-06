@@ -19,43 +19,50 @@ import com.vtxlab.demo.openweather.response.enums.ResponseStatus;
 import com.vtxlab.demo.openweather.service.OpenWeatherService;
 import com.vtxlab.demo.openweather.utils.WeatherModelMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping(value = "/api/v1")
+@Slf4j
 public class WeatherController implements WeatherOperations {
 
-    @Autowired
-    OpenWeatherService openWeatherService;
+        @Autowired
+        OpenWeatherService openWeatherService;
 
-    public static List<Alert> errAlerts = new ArrayList<>();
+        public static List<Alert> errAlerts = new ArrayList<>();
 
-    @Override
-    public ResponseEntity<ApiResponse<WeatherDto>> getWeatherData(
-            BigDecimal lantitude,
-            BigDecimal longitude) throws Exception {
-        CurrentWeatherResponse currentWeatherResponse = openWeatherService
-                .getCurrentWeather(lantitude, longitude);
+        @Override
+        public ResponseEntity<ApiResponse<WeatherDto>> getWeatherData(
+                        BigDecimal lantitude,
+                        BigDecimal longitude) throws Exception {
+                CurrentWeatherResponse currentWeatherResponse = openWeatherService
+                                .getCurrentWeather(lantitude, longitude);
 
-        Integer responseCode = currentWeatherResponse.getCode() == 200 ? //
-                ResponseStatus.OK.getCode()
-                : ResponseStatus.THIRD_PARTY_API_FAIL.getCode();
+                if (currentWeatherResponse == null) {
+                        log.info("it is null");
+                }
 
-        String responseMsg = currentWeatherResponse.getCode() == 200 ? //
-                ResponseStatus.OK.getMessage()
-                : ResponseStatus.THIRD_PARTY_API_FAIL
-                        .getMessage();
+                Integer responseCode = currentWeatherResponse.getCode() == 200 ? //
+                                ResponseStatus.OK.getCode()
+                                : ResponseStatus.THIRD_PARTY_API_FAIL.getCode();
 
-        WeatherDto weatherDto = WeatherModelMapper
-                .convert(currentWeatherResponse);
+                String responseMsg = currentWeatherResponse.getCode() == 200 ? //
+                                ResponseStatus.OK.getMessage()
+                                : ResponseStatus.THIRD_PARTY_API_FAIL
+                                                .getMessage();
 
-        ApiResponse<WeatherDto> apiResponse = ApiResponse
-                .<WeatherDto>builder()
-                .code(responseCode)
-                .message(responseMsg)
-                .data(weatherDto)
-                .alerts(errAlerts)
-                .build();
+                WeatherDto weatherDto = WeatherModelMapper
+                                .convert(currentWeatherResponse);
 
-        return ResponseEntity.ok().body(apiResponse);
-    }
+                ApiResponse<WeatherDto> apiResponse = ApiResponse
+                                .<WeatherDto>builder()
+                                .code(responseCode)
+                                .message(responseMsg)
+                                .data(weatherDto)
+                                .alerts(errAlerts)
+                                .build();
+
+                return ResponseEntity.ok().body(apiResponse);
+        }
 
 }

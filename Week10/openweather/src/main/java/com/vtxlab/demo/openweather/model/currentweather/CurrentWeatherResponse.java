@@ -1,5 +1,6 @@
 package com.vtxlab.demo.openweather.model.currentweather;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -9,12 +10,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CurrentWeatherResponse {
+@ToString
+public class CurrentWeatherResponse implements Serializable {
 
   @JsonProperty("coord")
   private Coordinate coordinate;

@@ -42,7 +42,6 @@ public class OpenWeatherServiceHolder implements OpenWeatherService {
   public CurrentWeatherResponse getCurrentWeather(BigDecimal latitude,
       BigDecimal longitude) throws ApiException {
 
-    // LocalDate.now()
     // key= openweather:currentweather:response
     // value= CurrentWeatherResponse
     String redisKey = "openweather:currentweather:response";
@@ -53,6 +52,7 @@ public class OpenWeatherServiceHolder implements OpenWeatherService {
     if (currentWeatherResponse != null) {
       return currentWeatherResponse;
     }
+
     try {
       String url = UriComponentsBuilder.fromUriString(baseUrl)
           .pathSegment(serviceVers)
@@ -66,11 +66,12 @@ public class OpenWeatherServiceHolder implements OpenWeatherService {
 
       log.info("url={}", url);
       // Call Open-Weather API
-      currentWeatherResponse = restTemplate.getForObject(url,
-          CurrentWeatherResponse.class);
-          
+      currentWeatherResponse = //
+          restTemplate.getForObject(url, CurrentWeatherResponse.class);
+
       // Set to Redis with 10 minutes expiry
-      redisTemplate.opsForValue().set(redisKey, currentWeatherResponse,
+      redisTemplate.opsForValue().set(redisKey,
+          currentWeatherResponse,
           Duration.ofSeconds(600));
 
       return currentWeatherResponse;

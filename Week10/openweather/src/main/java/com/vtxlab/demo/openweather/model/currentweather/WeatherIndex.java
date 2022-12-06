@@ -1,5 +1,7 @@
 package com.vtxlab.demo.openweather.model.currentweather;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WeatherIndex {
+public class WeatherIndex implements Serializable {
 
   // Weather condition 
   @JsonProperty("id")

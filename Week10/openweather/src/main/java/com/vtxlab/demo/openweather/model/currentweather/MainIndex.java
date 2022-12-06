@@ -1,5 +1,6 @@
 package com.vtxlab.demo.openweather.model.currentweather;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MainIndex {
+public class MainIndex implements Serializable {
 
   @JsonProperty("temp")
   private BigDecimal temperature;

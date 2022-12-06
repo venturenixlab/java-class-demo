@@ -1,5 +1,6 @@
 package com.vtxlab.demo.openweather.model.currentweather;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Coordinate {
+public class Coordinate implements Serializable {
 
   /**
    * City geo location, longitude
