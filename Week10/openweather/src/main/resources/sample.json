@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": 114.1772,
+    "lat": 22.3027
+  },
+  "weather": [
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 288.62,
+    "feels_like": 288.23,
+    "temp_min": 286.09,
+    "temp_max": 290.5,
+    "pressure": 1023,
+    "humidity": 77
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 5.36,
+    "deg": 10
+  },
+  "clouds": {
+    "all": 95
+  },
+  "dt": 1669950905,
+  "sys": {
+    "type": 2,
+    "id": 47808,
+    "country": "HK",
+    "sunrise": 1669934806,
+    "sunset": 1669973921
+  },
+  "timezone": 28800,
+  "id": 1818501,
+  "name": "Tsimshatsui",
+  "cod": 200
+}

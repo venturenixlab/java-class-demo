@@ -25,6 +25,7 @@ public class SelfGreetingService implements GreetingService {
 
   @Override
   public String getGreetingMessage() {
+
     // return "hello world"
     // Call another service to get result
     String url = UriComponentsBuilder.fromUriString(baseUrl)

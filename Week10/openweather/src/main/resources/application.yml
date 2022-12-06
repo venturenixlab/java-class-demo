@@ -1,0 +1,25 @@
+server:
+  port: 8100
+
+service:
+  appId : f9620f452136f2f16423f5d5371c8fba
+  currentweather:
+    baseUrl: https://api.openweathermap.org
+    serviceVers: data/2.5
+    serviceUrl: weather
+
+rest:
+  conn-mgr:
+    connection:
+      max-total: 20
+      max-per-route: 40
+    check:
+      inactivity: 1000
+  http-client:
+    timeout:
+      evictIdleConnection: 5
+  http-request-factory:
+    timeout:
+      pool-connect: 10000
+      server-connect: 10000
+      server-read: 20000
