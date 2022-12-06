@@ -23,3 +23,12 @@ rest:
       pool-connect: 10000
       server-connect: 10000
       server-read: 20000
+
+spring:
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      password: 
+      timeout: 60000
