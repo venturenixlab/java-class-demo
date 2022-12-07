@@ -38,10 +38,6 @@ public class WeatherController implements WeatherOperations {
                 CurrentWeatherResponse currentWeatherResponse = openWeatherService
                                 .getCurrentWeather(lantitude, longitude);
 
-                if (currentWeatherResponse == null) {
-                        log.info("it is null");
-                }
-
                 Integer responseCode = currentWeatherResponse.getCode() == 200 ? //
                                 ResponseStatus.OK.getCode()
                                 : ResponseStatus.THIRD_PARTY_API_FAIL.getCode();
