@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# Data Source Settings
+spring:
+  datasource:
+    url: jdbc:h2:mem:jpademo
+  sql:
+    init:
+      platform: h2
+      schema-locations: classpath:DDL_DEPARTMENT.sql, classpath:DDL_EMPLOYEE.sql
+      data-locations: classpath:DML_DEPARTMENT.sql, classpath:DML_EMPLOYEE.sql
+      mode: always
+
+# JPA Settings
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: none # for development purpose
+
+# H2 Database Settings
+spring.h2.console.enabled: true
