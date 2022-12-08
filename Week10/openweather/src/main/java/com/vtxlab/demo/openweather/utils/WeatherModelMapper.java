@@ -14,9 +14,17 @@ public class WeatherModelMapper {
         CurrentWeatherDto.builder()
             .latitude(cwr.getCoordinate().getLatitude())
             .longitude(cwr.getCoordinate().getLongitude())
+            .datatime(cwr.getDatatime())
+            .timezone(cwr.getTimezone())
+            .temperature(cwr.getMainIndex().getTemperature())
+            .minTemperature(cwr.getMainIndex().getMinTemperature())
+            .maxTemperature(cwr.getMainIndex().getMaxTemperature())
             .cityId(cwr.getCityId())
             .cityName(cwr.getCityName())
             .humidity(cwr.getMainIndex().getHumidity())
+            .pressure(cwr.getMainIndex().getPressure())
+            .windDegree(cwr.getWindIndex().getWindDegree())
+            .windSpeed(cwr.getWindIndex().getWindSpeed())
             .cloudinessPercent(cwr.getCloudIndex().getCloudinessPercent())
             .build();
 

@@ -19,7 +19,7 @@ public class Coordinate implements Serializable {
   /**
    * City geo location, longitude
    */
-  @JsonProperty("lan")
+  @JsonProperty("lat")
   private BigDecimal latitude;
 
   /**

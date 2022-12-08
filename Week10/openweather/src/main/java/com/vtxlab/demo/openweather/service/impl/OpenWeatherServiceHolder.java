@@ -38,36 +38,27 @@ public class OpenWeatherServiceHolder implements OpenWeatherService {
 
   @Value("${service.appId}")
   String appId;
-
-  @Autowired
-  RedisTemplate<String, CurrentWeatherResponse> redisTemplate;
-
+  
   @Override
   public CurrentWeatherResponse getCurrentWeather(BigDecimal latitude,
       BigDecimal longitude) throws ApiException {
 
-    CurrentWeatherResponse currentWeatherResponse = //
-        redisTemplate.opsForValue().get(RedisKey.API_OPENWEATHER_1);
-
-    // Check if the currentWeather response still exist in Redis
-    // If yes, return;
-    if (currentWeatherResponse != null) {
-      return currentWeatherResponse;
-    }
-
+    // Invoke Weather API
     HashMap<String, String> hMap = new HashMap<>();
     hMap.put("lat", latitude.toString());
     hMap.put("lon", longitude.toString());
     hMap.put("appId", appId);
-    currentWeatherResponse = weatherApi.invoke(baseUrl,
-        serviceVers, serviceUrl,
-        hMap, CurrentWeatherResponse.class);
 
-    // Set to Redis with 10 minutes expiry
-    redisTemplate.opsForValue().set(RedisKey.API_OPENWEATHER_1,
-        currentWeatherResponse,
-        Duration.ofSeconds(600));
-        
+    String redisKey = RedisKey.API_OPENWEATHER_1 + ":"
+        + latitude.toString() + ":"
+        + longitude.toString();
+
+    CurrentWeatherResponse currentWeatherResponse = //
+        weatherApi.invoke(baseUrl,
+            serviceVers, serviceUrl,
+            hMap, CurrentWeatherResponse.class,
+            redisKey, Duration.ofSeconds(60));
+
     return currentWeatherResponse;
   }
 

@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +18,8 @@ import com.vtxlab.demo.openweather.response.enums.ResponseStatus;
 import com.vtxlab.demo.openweather.service.OpenWeatherService;
 import com.vtxlab.demo.openweather.utils.WeatherModelMapper;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
 @RequestMapping(value = "/api/v1")
-@Slf4j
 public class WeatherController implements WeatherOperations {
 
         @Autowired

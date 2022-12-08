@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.vtxlab.demo.openweather.model.interfaces.WeatherResponseInterface;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @ToString
-public class CurrentWeatherResponse implements Serializable {
+public class CurrentWeatherResponse
+    implements Serializable, WeatherResponseInterface {
 
   @JsonProperty("coord")
   private Coordinate coordinate;

@@ -6,15 +6,15 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import com.vtxlab.demo.openweather.model.currentweather.CurrentWeatherResponse;
+import com.vtxlab.demo.openweather.model.interfaces.WeatherResponseInterface;
 
 @Configuration
 public class RedisTemplateConfig {
 
   @Bean(name = "redisTemplate")
-  public RedisTemplate<String, CurrentWeatherResponse> redisTemplate(
+  public RedisTemplate<String, WeatherResponseInterface> redisTemplate(
       RedisConnectionFactory connectionFactory) {
-    RedisTemplate<String, CurrentWeatherResponse> redisTemplate = new RedisTemplate<>();
+    RedisTemplate<String, WeatherResponseInterface> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(connectionFactory);
     StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
     redisTemplate.setKeySerializer(stringRedisSerializer);

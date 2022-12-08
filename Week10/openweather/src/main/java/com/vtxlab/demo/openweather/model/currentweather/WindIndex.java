@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Data;
+
+@Data
 public class WindIndex implements Serializable {
 
   /**
