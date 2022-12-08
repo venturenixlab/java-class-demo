@@ -1,5 +1,7 @@
 package com.vtxlab.demo.openweather.utils;
 
+import java.time.LocalDateTime;
+
 import com.vtxlab.demo.openweather.model.currentweather.CurrentWeatherResponse;
 import com.vtxlab.demo.openweather.model.dto.CurrentWeatherDto;
 import com.vtxlab.demo.openweather.model.dto.WeatherDto;
@@ -28,6 +30,8 @@ public class WeatherModelMapper {
             .cloudinessPercent(cwr.getCloudIndex().getCloudinessPercent())
             .build();
 
-    return WeatherDto.builder().currentWeatherDto(currentWeatherDto).build();
+    return new WeatherDto("Java Team",
+        LocalDateTime.now(),
+        currentWeatherDto);
   }
 }

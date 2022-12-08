@@ -12,12 +12,13 @@ public enum ResponseStatus {
   THIRD_PARTY_API_FAIL(30001, "Third Party API Fail."), //
   THIRD_PARTY_API_TIMEOUT(30002, "Third Party API Timeout."),
   // Runtime Exception 70000 - 71000
-  NPE(70000, "Nullpointer Exception.");
+  NPE(70000, "Nullpointer Exception."),
+  AME(70001, "Arithmetic Exception.");
 
   Integer code;
   String message;
 
-  ResponseStatus(int code, String message) {
+  ResponseStatus(Integer code, String message) {
     this.code = code;
     this.message = message;
   }

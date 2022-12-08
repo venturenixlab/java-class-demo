@@ -6,6 +6,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import com.vtxlab.demo.openweather.model.currentweather.CurrentWeatherResponse;
 import com.vtxlab.demo.openweather.model.interfaces.WeatherResponseInterface;
 
 @Configuration

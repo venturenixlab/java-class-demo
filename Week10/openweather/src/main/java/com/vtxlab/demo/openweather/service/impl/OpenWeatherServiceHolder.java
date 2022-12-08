@@ -21,7 +21,6 @@ import com.vtxlab.demo.openweather.utils.WeatherApi;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class OpenWeatherServiceHolder implements OpenWeatherService {
 
   @Autowired
@@ -38,7 +37,7 @@ public class OpenWeatherServiceHolder implements OpenWeatherService {
 
   @Value("${service.appId}")
   String appId;
-  
+
   @Override
   public CurrentWeatherResponse getCurrentWeather(BigDecimal latitude,
       BigDecimal longitude) throws ApiException {

@@ -2,6 +2,8 @@ package com.vtxlab.demo.openweather.response;
 
 import java.util.List;
 
+import com.vtxlab.demo.openweather.response.enums.ResponseStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ApiResponse<T> {
+public class ApiResponse<T extends ResponseData> {
 
   /**
    * !HttpStatus. Instead, its internal response code, controlled by enum.
@@ -34,4 +36,5 @@ public class ApiResponse<T> {
    */
   private List<Alert> alerts;
 
+  // method.. check if alerts is not empty when code != 200
 }

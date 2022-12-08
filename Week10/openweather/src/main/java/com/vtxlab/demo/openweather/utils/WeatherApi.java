@@ -1,10 +1,13 @@
 package com.vtxlab.demo.openweather.utils;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CurrencyEditor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -12,7 +15,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.vtxlab.demo.openweather.exception.ApiException;
 import com.vtxlab.demo.openweather.model.currentweather.CurrentWeatherResponse;
+import com.vtxlab.demo.openweather.model.dto.CurrentWeatherDto;
+import com.vtxlab.demo.openweather.model.dto.WeatherDto;
 import com.vtxlab.demo.openweather.model.interfaces.WeatherResponseInterface;
+import com.vtxlab.demo.openweather.response.Alert;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,6 +31,16 @@ public class WeatherApi {
 
   @Autowired
   RedisTemplate<String, WeatherResponseInterface> redisTemplate;
+
+  static List<Alert> alerts = new ArrayList<>();
+
+  public static List<Alert> getAlerts() {
+    return alerts;
+  }
+
+  public static void setAlerts(Alert alert) {
+    alerts.add(alert);
+  }
 
   /**
    * 
@@ -49,7 +65,8 @@ public class WeatherApi {
         redisTemplate.opsForValue().get(redisKey);
 
     if (weatherResponse != null) {
-      // if (weatherResponse instanceof WeatherResponseInterface) throw something();
+      // if (weatherResponse instanceof WeatherResponseInterface) throw
+      // something();
       return (T) weatherResponse;
     }
     // Invoke API
@@ -61,17 +78,21 @@ public class WeatherApi {
         weatherResponse,
         redisKeyDuration);
 
+    WeatherDto weatherDto = new WeatherDto(new CurrentWeatherDto());
+
     return (T) weatherResponse;
   }
 
-  public <T> T invoke(String baseUrl, String serviceVers,
+  public <T extends WeatherResponseInterface> T invoke(String baseUrl,
+      String serviceVers,
       String serviceUrl, HashMap<String, String> queryParms,
       Class<T> returnType) throws ApiException {
     try {
       UriComponentsBuilder url = UriComponentsBuilder.fromUriString(baseUrl)
-          .pathSegment(serviceVers)
-          .path(serviceUrl);
+          .pathSegment(serviceVers) // data/2.5
+          .path(serviceUrl); // weather
 
+      // http://xxx.com/data/2.5/weather?lat=22&lon=115&appId=12345
       for (Map.Entry<String, String> entry : queryParms.entrySet()) {
         url = url.queryParam(entry.getKey(), entry.getValue());
       }
