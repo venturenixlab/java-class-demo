@@ -7,14 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CurrencyEditor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.vtxlab.demo.openweather.exception.ApiException;
-import com.vtxlab.demo.openweather.model.currentweather.CurrentWeatherResponse;
 import com.vtxlab.demo.openweather.model.dto.CurrentWeatherDto;
 import com.vtxlab.demo.openweather.model.dto.WeatherDto;
 import com.vtxlab.demo.openweather.model.interfaces.WeatherResponseInterface;

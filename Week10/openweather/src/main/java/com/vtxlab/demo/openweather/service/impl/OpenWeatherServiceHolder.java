@@ -6,19 +6,13 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.vtxlab.demo.openweather.exception.ApiException;
 import com.vtxlab.demo.openweather.model.currentweather.CurrentWeatherResponse;
 import com.vtxlab.demo.openweather.service.OpenWeatherService;
 import com.vtxlab.demo.openweather.utils.RedisKey;
 import com.vtxlab.demo.openweather.utils.WeatherApi;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Service
 public class OpenWeatherServiceHolder implements OpenWeatherService {
