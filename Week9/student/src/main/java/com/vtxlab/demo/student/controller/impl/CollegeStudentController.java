@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.demo.student.controller.StudentOperation;
 import com.vtxlab.demo.student.entity.Student;
 import com.vtxlab.demo.student.service.StudentService;
-import com.vtxlab.demo.student.service.impl.CollegeStudentService;
 
 @RestController // Controller + ResponseBody
 @RequestMapping(value = "/api/v1")
