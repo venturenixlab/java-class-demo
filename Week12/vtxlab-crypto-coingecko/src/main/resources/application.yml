@@ -1,0 +1,30 @@
+server:
+  port: 8085
+
+coingecko:
+  baseUrl: https://api.coingecko.com
+  serviceVers: api/v3
+  service:
+    coins-markets:
+      serviceUrl: coins/markets
+      currency: usd
+      order: market_cap_desc
+      perPage: 100
+      page: 1
+      sparkline: false
+
+rest:
+  conn-mgr:
+    connection:
+      max-total: 20
+      max-per-route: 40
+    check:
+      inactivity: 1000
+  http-client:
+    timeout:
+      evictIdleConnection: 5
+  http-request-factory:
+    timeout:
+      pool-connect: 10000
+      server-connect: 10000
+      server-read: 20000

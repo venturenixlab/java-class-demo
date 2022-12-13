@@ -186,7 +186,7 @@ export default {
     // fetch timer, invoke backend service in every 2 seconds 
     setInterval(() => {
       retrieveCoins();
-    }, 4000);
+    }, 30000);
     // 10 items for marquee
     const tenCoins = computed(() => {
       return coins.value.slice(0, 10);
