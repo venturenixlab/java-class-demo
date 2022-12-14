@@ -12,7 +12,8 @@ coingecko:
       perPage: 100
       page: 1
       sparkline: false
-
+    simple-price:
+      serviceUrl: simple/price
 rest:
   conn-mgr:
     connection:

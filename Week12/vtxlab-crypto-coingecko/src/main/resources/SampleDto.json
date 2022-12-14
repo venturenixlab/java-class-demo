@@ -1,0 +1,14 @@
+{
+  "exchangeRates": [
+    {
+      "fromCurr" : "bitcoin",
+      "toCurr" : "USD",
+      "rate" : 4.5
+    },
+    {
+      "fromCurr" : "USD",
+      "toCurr" : "bitcoin",
+      "rate" : 0.15
+    }
+  ]
+}
