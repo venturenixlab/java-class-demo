@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -23,7 +22,5 @@ public class ChannelDto {
     private String toCurr;
     private BigDecimal rate;
   }
-
-
-
+  
 }
