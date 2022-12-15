@@ -1,4 +1,4 @@
-package com.vtxlab.crypto.coingecko.utils;
+package com.vtxlab.crypto.polygon.utils;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -13,10 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.vtxlab.crypto.coingecko.exception.ApiException;
-import com.vtxlab.crypto.coingecko.model.CoinsCurrency;
-import com.vtxlab.crypto.coingecko.model.dto.ChannelDto;
-import com.vtxlab.crypto.coingecko.model.dto.ChannelDto.ExchangeRate;
+import com.vtxlab.crypto.polygon.exception.ApiException;
+import com.vtxlab.crypto.polygon.model.CoinExchange;
+import com.vtxlab.crypto.polygon.model.dto.ChannelDto;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,36 +27,27 @@ public class CoinsApi {
   RestTemplate restTemplate;
 
   public static List<ChannelDto.ExchangeRate> map(
-      Map<String, CoinsCurrency> coinsCurrencyMap) {
+      List<CoinExchange> coinExchanges) {
 
     List<ChannelDto.ExchangeRate> exchangeRates = new ArrayList<>();
 
-    for (Map.Entry<String, CoinsCurrency> entry : coinsCurrencyMap.entrySet()) {
-      // Set Crypto to USD
-      ExchangeRate exchangeRate = new ChannelDto().new ExchangeRate();
-      exchangeRate.setFromCurr(entry.getKey());
-      exchangeRate.setToCurr("USD");
-      exchangeRate.setRate(entry.getValue().getUsd());
+    for (CoinExchange coinExchange : coinExchanges) {
+      // Set the rate for "Crypto to Currency"
+      ChannelDto.ExchangeRate exchangeRate = new ChannelDto()
+          .buildExchangeRate();
+      exchangeRate.setFromCurr(coinExchange.getTickerCryptoString()); // BTC
+      exchangeRate.setToCurr(coinExchange.getTickerCurrencyString()); // USD
+      exchangeRate
+          .setRate(coinExchange.getExchangeResults().get(0).getHighestPrice()); // TBC
       exchangeRates.add(exchangeRate);
-      // Set Crypto to HKD
-      exchangeRate = new ChannelDto().new ExchangeRate();
-      exchangeRate.setFromCurr(entry.getKey());
-      exchangeRate.setToCurr("HKD");
-      exchangeRate.setRate(entry.getValue().getHkd());
-      exchangeRates.add(exchangeRate);
-      // Set USD to Crypto
-      exchangeRate = new ChannelDto().new ExchangeRate();
-      exchangeRate.setFromCurr("USD");
-      exchangeRate.setToCurr(entry.getKey());
-      exchangeRate.setRate(BigDecimal.ONE.divide(entry.getValue().getUsd(),
-          new MathContext(6, RoundingMode.HALF_UP)));
-      exchangeRates.add(exchangeRate);
-      // Set HKD to Crypto
-      exchangeRate = new ChannelDto().new ExchangeRate();
-      exchangeRate.setFromCurr("HKD");
-      exchangeRate.setToCurr(entry.getKey());
-      exchangeRate.setRate(BigDecimal.ONE.divide(entry.getValue().getHkd(),
-          new MathContext(6, RoundingMode.HALF_UP)));
+      // Set the rate for "Currency to Crypto"
+      exchangeRate = new ChannelDto().buildExchangeRate();
+      exchangeRate.setFromCurr(coinExchange.getTickerCurrencyString());
+      exchangeRate.setToCurr(coinExchange.getTickerCryptoString());
+      exchangeRate.setRate(
+          BigDecimal.ONE.divide(
+              coinExchange.getExchangeResults().get(0).getHighestPrice(), // TBC
+              new MathContext(6, RoundingMode.HALF_UP)));
       exchangeRates.add(exchangeRate);
     }
     return exchangeRates;

@@ -1,0 +1,27 @@
+server:
+  port: 8086
+
+polygon:
+  baseUrl: https://api.polygon.io
+  serviceVers: v2/aggs
+  service:
+    previous:
+      serviceUrl: ticker/{ticker}/prev
+      adjusted: true
+  apiKey: chOagSkBjTlw5bJFpbWPdODnEETGVDQ7
+
+rest:
+  conn-mgr:
+    connection:
+      max-total: 20
+      max-per-route: 40
+    check:
+      inactivity: 1000
+  http-client:
+    timeout:
+      evictIdleConnection: 5
+  http-request-factory:
+    timeout:
+      pool-connect: 10000
+      server-connect: 10000
+      server-read: 20000

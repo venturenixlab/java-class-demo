@@ -1,31 +1,21 @@
 package com.vtxlab.crypto.coingecko.service.impl;
 
 import java.util.Arrays;
-import java.util.Currency;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vtxlab.crypto.coingecko.exception.ApiException;
-import com.vtxlab.crypto.coingecko.model.CoinsCurrency;
 import com.vtxlab.crypto.coingecko.model.CoinsCurrencyMap;
 import com.vtxlab.crypto.coingecko.model.CoinsMarkets;
 import com.vtxlab.crypto.coingecko.service.CoingeckoService;
 import com.vtxlab.crypto.coingecko.utils.CoinsApi;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@Slf4j
 public class CoingeckoServiceHolder implements CoingeckoService {
 
   @Autowired
@@ -69,12 +59,14 @@ public class CoingeckoServiceHolder implements CoingeckoService {
   // https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd,hkd&ids=bitcoin,ethereum,tether,dogecoin,ripple
   @Override
   public CoinsCurrencyMap getSimplePrices(List<String> cryptos,
-      List<String> currencies) throws ApiException, JsonProcessingException {
+      List<String> currencies) throws ApiException {
 
     // Alternative: String.join(",", cryptos);
+    // Change the List<String> to String (bitcoin,tether)
     String cryptoStr = cryptos.stream().collect(Collectors.joining(","));
     String currencyStr = currencies.stream().collect(Collectors.joining(","));
 
+    // Concat Url: ?vs_currencies=usd,hkd&ids=bitcoin,ethereum,tether,dogecoin,ripple
     HashMap<String, String> hMap = new HashMap<>();
     hMap.put("ids", cryptoStr);
     hMap.put("vs_currencies", currencyStr);

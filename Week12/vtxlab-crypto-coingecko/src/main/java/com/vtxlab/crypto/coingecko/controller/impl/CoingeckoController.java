@@ -19,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 // @CrossOrigin
 @RequestMapping(value = "/crypto/api/v1")
-@Slf4j
 public class CoingeckoController implements CoingeckoOperations {
 
   @Autowired
@@ -32,11 +31,10 @@ public class CoingeckoController implements CoingeckoOperations {
 
   @Override
   public ChannelDto getSimplePrices(List<String> cryptos,
-      List<String> currencies) throws ApiException, JsonProcessingException {
+      List<String> currencies) throws ApiException {
 
-    return ChannelDto.builder() //
-        .exchangeRates(CoinsApi.map(coingeckoService
-            .getSimplePrices(cryptos, currencies)))
+    return ChannelDto.builder().exchangeRates(
+        CoinsApi.map(coingeckoService.getSimplePrices(cryptos, currencies)))
         .build();
   }
 

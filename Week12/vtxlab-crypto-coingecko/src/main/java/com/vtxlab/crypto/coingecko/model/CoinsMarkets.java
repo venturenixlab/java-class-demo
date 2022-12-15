@@ -42,8 +42,8 @@ public class CoinsMarkets implements Serializable {
   private BigDecimal totalSupply;
   private BigDecimal maxSupply;
   private BigDecimal ath;
-  private BigDecimal ath_change_percentage;
-  private LocalDateTime ath_date;
+  private BigDecimal athChangePercentage;
+  private LocalDateTime athDate;
   private Roi roi;
   private LocalDateTime lastUpdated;
 
