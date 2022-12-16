@@ -9,7 +9,7 @@ import com.vtxlab.crypto.admin.entity.Channel;
 @RequestMapping(value = "/default")
 public interface ChannelOperations {
 
-  @GetMapping(value = "/coin-mapping")
+  @GetMapping(value = "/channel")
   Channel getChannel(@RequestParam String sourceApp,
       @RequestParam String tranType);
 
