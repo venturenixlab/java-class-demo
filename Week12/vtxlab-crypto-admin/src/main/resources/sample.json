@@ -1,0 +1,36 @@
+{
+  "id": 1,
+  "channelCode": "coingecko",
+  "channelUrl": "api.coingecko.com",
+  "lastUpdDate": "2022-12-16T15:00:49",
+  "channelCoinMappings": [
+    {
+      "id": 1,
+      "coinCode": "BTC",
+      "coinId": "bitcoin",
+      "lastUpdDate": "2022-12-16T15:02:37"
+    },
+    {
+      "id": 2,
+      "coinCode": "ETH",
+      "coinId": "ethereum",
+      "lastUpdDate": "2022-12-16T15:02:37"
+    },
+    {
+      "id": 3,
+      "coinCode": "USDT",
+      "coinId": "tether",
+      "lastUpdDate": "2022-12-16T15:02:37"
+    }
+  ],
+  "channelTransactions": [
+    {
+      "id": 1,
+      "domainVersion": "crypto/coingecko/api/v1",
+      "domainUrl": "price",
+      "sourceApp": "crypto-web",
+      "tranType": "ex-rate",
+      "lastUpdDate": "2022-12-16T16:40:41"
+    }
+  ]
+}
