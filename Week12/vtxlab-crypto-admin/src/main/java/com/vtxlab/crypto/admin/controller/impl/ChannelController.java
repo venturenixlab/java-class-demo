@@ -32,7 +32,6 @@ public class ChannelController implements ChannelOperations {
 
   @Override
   public Channel saveChannel(Channel channel) {
-    log.info("channel={}", channel);
     return channelService.saveChannel(channel);
   }
 
