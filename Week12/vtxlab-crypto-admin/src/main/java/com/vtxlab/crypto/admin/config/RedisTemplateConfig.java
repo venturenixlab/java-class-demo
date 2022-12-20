@@ -8,13 +8,15 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import com.vtxlab.crypto.admin.entity.Channel;
+
 @Configuration
 public class RedisTemplateConfig {
 
   @Bean(name = "redisTemplate")
-  public RedisTemplate<String, UUID> redisTemplate(
+  public RedisTemplate<String, Channel> redisTemplate(
       RedisConnectionFactory connectionFactory) {
-    RedisTemplate<String, UUID> redisTemplate = new RedisTemplate<>();
+    RedisTemplate<String, Channel> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(connectionFactory);
     StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
     redisTemplate.setKeySerializer(stringRedisSerializer);

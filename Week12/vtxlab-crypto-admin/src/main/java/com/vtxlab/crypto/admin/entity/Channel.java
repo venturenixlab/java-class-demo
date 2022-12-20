@@ -1,5 +1,6 @@
 package com.vtxlab.crypto.admin.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "CHANNELS")
-public class Channel {
+public class Channel implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,9 @@
 package com.vtxlab.crypto.admin.controller;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,14 +28,15 @@ public interface ChannelOperations {
   List<Channel> getAllChannel();
 
   @PostMapping(value = "/channel")
-  Channel saveChannel(@Valid @RequestBody Channel channel);
+  ResponseEntity<Channel> saveChannel(@Valid @RequestBody Channel channel,
+      @RequestParam UUID uuid);
 
   @PutMapping(value = "/channel/{id}")
   Channel updateChannel(@Valid @RequestBody Channel channel,
       @PathVariable Long id);
 
   @PostMapping(value = "/channel-submit")
-  Channel submitChannel(@Valid @RequestBody Channel channel);
+  Channel submitChannel(@Valid @RequestBody Channel channel, UUID uuid);
 
   @DeleteMapping(value = "/channels")
   void deleteAllChannel();

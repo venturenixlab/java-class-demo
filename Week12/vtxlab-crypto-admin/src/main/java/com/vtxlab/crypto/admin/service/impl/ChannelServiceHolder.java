@@ -1,9 +1,12 @@
 package com.vtxlab.crypto.admin.service.impl;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.vtxlab.crypto.admin.entity.Channel;
@@ -15,6 +18,9 @@ public class ChannelServiceHolder implements ChannelService {
 
   @Autowired
   ChannelRepository channelRepository;
+
+  @Autowired
+  RedisTemplate<String, Channel> redisTemplate;
 
   @Override
   public Channel getChannel(String sourceType, String tranType) {
@@ -34,14 +40,20 @@ public class ChannelServiceHolder implements ChannelService {
   }
 
   @Override
-  public Channel saveChannel(Channel channel) {
-    return channelRepository.save(channel);
+  public Channel saveChannel(Channel channel, UUID uuid) {
+    String redisKey = "crypto:admin:post:channel:uuid:" + uuid;
+    if (redisTemplate.opsForValue().get(redisKey) != null) {
+      return null;
+    }
+    Channel savedChannel = channelRepository.save(channel);
+    redisTemplate.opsForValue().set(redisKey, savedChannel, Duration.ofDays(1));
+    return savedChannel;
   }
 
   @Override
-  public Channel submitChannel(Channel channel) {
+  public Channel submitChannel(Channel channel, UUID uuid) {
     if (!isChannelCodeExist(channel.getChannelCode())) {
-      saveChannel(channel);
+      saveChannel(channel, uuid);
     }
     throw new IllegalArgumentException();
   }

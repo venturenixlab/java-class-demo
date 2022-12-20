@@ -1,8 +1,10 @@
 package com.vtxlab.crypto.admin.controller.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/crypto/admin/api/v1")
-@Slf4j
 public class ChannelController implements ChannelOperations {
 
   @Autowired
@@ -31,8 +32,12 @@ public class ChannelController implements ChannelOperations {
   }
 
   @Override
-  public Channel saveChannel(Channel channel) {
-    return channelService.saveChannel(channel);
+  public ResponseEntity<Channel> saveChannel(Channel channel, UUID uuid) {
+    Channel savedChannel = channelService.saveChannel(channel, uuid);
+    if (savedChannel == null) {
+      return ResponseEntity.badRequest().build();
+    }
+    return ResponseEntity.ok().body(savedChannel);
   }
 
   @Override
@@ -41,8 +46,8 @@ public class ChannelController implements ChannelOperations {
   }
 
   @Override
-  public Channel submitChannel(Channel channel) {
-    return channelService.submitChannel(channel);
+  public Channel submitChannel(Channel channel, UUID uuid) {
+    return channelService.submitChannel(channel, uuid);
   }
 
   @Override
