@@ -42,6 +42,7 @@ public class ChannelServiceHolder implements ChannelService {
   @Override
   public Channel saveChannel(Channel channel, UUID uuid) {
     String redisKey = "crypto:admin:post:channel:uuid:" + uuid;
+    // crypto:admin:post:channel:uuid:f79113af-c7c6-4427-af14-7a34098851a9
     if (redisTemplate.opsForValue().get(redisKey) != null) {
       return null;
     }
