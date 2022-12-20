@@ -6,4 +6,12 @@ public interface ChannelService {
 
   Channel getChannel(String sourceType, String tranType);
 
+  Channel saveChannel(Channel channel);
+
+  Channel updateChannel(Channel channel, Long id);
+
+  Boolean isChannelCodeExist(String channelCode);
+
+  Channel submitChannel(Channel channel);
+
 }

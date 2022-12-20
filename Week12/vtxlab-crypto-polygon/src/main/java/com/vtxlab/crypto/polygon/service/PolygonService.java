@@ -9,5 +9,7 @@ public interface PolygonService {
 
   List<CoinExchange> getCoinExchangeList(List<String> cryptos,
       List<String> currencies) throws ApiException;
+  
+  
 
 }

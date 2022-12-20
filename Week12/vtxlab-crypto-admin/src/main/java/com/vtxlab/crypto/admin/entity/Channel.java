@@ -40,10 +40,11 @@ public class Channel {
 
   @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
   @JsonIgnoreProperties({ "channel" })
-  private List<ChannelCoinMapping> channelCoinMappings = new ArrayList<>();
+  private List<ChannelCoinMapping> coinMaps = new ArrayList<>();
 
   @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
   @JsonIgnoreProperties({ "channel" })
-  private List<ChannelTransaction> channelTransactions = new ArrayList<>();
+  private List<ChannelTransaction> coinTrans = new ArrayList<>();
+
 
 }

@@ -16,8 +16,10 @@ public interface ChannelRepository extends JpaRepository<Channel, Long> {
    * and t.source_app = 'crypto-web'
    * and t.tran_type = 'ex-rate';
    */
-  Channel findByChannelTransactionsSourceAppAndChannelTransactionsTranType(
+  Channel findByCoinTransSourceAppAndCoinTransTranType(
       String sourceApp,
       String tranType);
+
+  Boolean findByChannelCode(String ChannelCode);
 
 }

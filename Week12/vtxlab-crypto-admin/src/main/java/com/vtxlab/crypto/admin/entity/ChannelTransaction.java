@@ -15,9 +15,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.Getter;
 
-@Getter
+@Data
 @Entity
 @Table(name = "CHANNEL_TRANS")
 public class ChannelTransaction {
@@ -48,7 +47,7 @@ public class ChannelTransaction {
 
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "CHANNEL_ID", referencedColumnName = "ID")
-  @JsonIgnoreProperties("channelTransactions")
+  @JsonIgnoreProperties("coinTrans")
   private Channel channel;
 
 }
