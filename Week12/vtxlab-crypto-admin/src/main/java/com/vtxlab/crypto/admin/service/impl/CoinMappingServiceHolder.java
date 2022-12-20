@@ -1,14 +1,11 @@
 package com.vtxlab.crypto.admin.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vtxlab.crypto.admin.entity.Channel;
 import com.vtxlab.crypto.admin.entity.ChannelCoinMapping;
 import com.vtxlab.crypto.admin.repository.ChannelRepository;
 import com.vtxlab.crypto.admin.repository.CoinMappingRepository;

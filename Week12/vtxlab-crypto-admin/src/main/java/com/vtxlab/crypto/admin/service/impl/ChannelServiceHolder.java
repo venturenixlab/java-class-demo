@@ -1,11 +1,11 @@
 package com.vtxlab.crypto.admin.service.impl;
 
-import javax.swing.event.ChangeEvent;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer;
 import com.vtxlab.crypto.admin.entity.Channel;
 import com.vtxlab.crypto.admin.repository.ChannelRepository;
 import com.vtxlab.crypto.admin.service.ChannelService;
@@ -21,6 +21,11 @@ public class ChannelServiceHolder implements ChannelService {
     return channelRepository
         .findByCoinTransSourceAppAndCoinTransTranType(
             sourceType, tranType);
+  }
+
+  @Override
+  public List<Channel> getAllChannel() {
+    return channelRepository.findAll();
   }
 
   @Override
@@ -43,9 +48,23 @@ public class ChannelServiceHolder implements ChannelService {
 
   @Override
   public Channel updateChannel(Channel channel, Long id) {
-    if (channelRepository.existsById(id)) {
-      return channelRepository.save(channel);
-    }
-    return null;
+    return channelRepository.findById(id).map(chl -> {
+      chl.setChannelCode(channel.getChannelCode());
+      chl.setChannelUrl(channel.getChannelUrl());
+      chl.setLastUpdDate(channel.getLastUpdDate() == null ? LocalDateTime.now()
+          : channel.getLastUpdDate());
+      return channelRepository.save(chl);
+    }).orElse(null);
+    /*
+     * if (channelRepository.existsById(id)) {
+     * return channelRepository.save(channel);
+     * }
+     * return null;
+     */
+  }
+
+  @Override
+  public void deleteAllChannel() {
+    channelRepository.deleteAll();
   }
 }

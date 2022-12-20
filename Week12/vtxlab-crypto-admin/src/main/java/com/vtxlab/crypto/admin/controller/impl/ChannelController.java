@@ -1,5 +1,7 @@
 package com.vtxlab.crypto.admin.controller.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +26,11 @@ public class ChannelController implements ChannelOperations {
   }
 
   @Override
+  public List<Channel> getAllChannel() {
+    return channelService.getAllChannel();
+  }
+
+  @Override
   public Channel saveChannel(Channel channel) {
     log.info("channel={}", channel);
     return channelService.saveChannel(channel);
@@ -37,5 +44,10 @@ public class ChannelController implements ChannelOperations {
   @Override
   public Channel submitChannel(Channel channel) {
     return channelService.submitChannel(channel);
+  }
+
+  @Override
+  public void deleteAllChannel() {
+    channelService.deleteAllChannel();
   }
 }

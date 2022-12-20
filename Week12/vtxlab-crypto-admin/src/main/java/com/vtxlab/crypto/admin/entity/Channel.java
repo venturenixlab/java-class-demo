@@ -38,13 +38,12 @@ public class Channel {
   @Column(name = "LAST_UPD_DATE")
   private LocalDateTime lastUpdDate;
 
-  @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "channel")
   @JsonIgnoreProperties({ "channel" })
   private List<ChannelCoinMapping> coinMaps = new ArrayList<>();
 
-  @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "channel")
   @JsonIgnoreProperties({ "channel" })
   private List<ChannelTransaction> coinTrans = new ArrayList<>();
-
 
 }
