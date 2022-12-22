@@ -11,7 +11,10 @@ import com.vtxlab.crypto.admin.repository.ChannelRepository;
 import com.vtxlab.crypto.admin.repository.CoinMappingRepository;
 import com.vtxlab.crypto.admin.service.CoinMappingService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CoinMappingServiceHolder implements CoinMappingService {
 
   @Autowired
@@ -47,6 +50,11 @@ public class CoinMappingServiceHolder implements CoinMappingService {
      * }
      * return integers;
      */
+  }
+
+  @Override
+  public List<ChannelCoinMapping> getByChannelId(Long id) {
+    return coinMappingRepository.findByChannelId(id);
   }
 
 }

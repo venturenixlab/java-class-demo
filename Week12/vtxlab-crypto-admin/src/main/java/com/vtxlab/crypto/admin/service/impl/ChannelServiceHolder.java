@@ -30,13 +30,18 @@ public class ChannelServiceHolder implements ChannelService {
   }
 
   @Override
+  public Channel getChannel(String channelCode) {
+    return channelRepository.findByChannelCode(channelCode);
+  }
+
+  @Override
   public List<Channel> getAllChannel() {
     return channelRepository.findAll();
   }
 
   @Override
   public Boolean isChannelCodeExist(String channelCode) {
-    return channelRepository.findByChannelCode(channelCode);
+    return channelRepository.existsByChannelCode(channelCode);
   }
 
   @Override

@@ -20,24 +20,27 @@ import jakarta.validation.Valid;
 @RequestMapping(value = "/default")
 public interface ChannelOperations {
 
-  @GetMapping(value = "/channel")
-  Channel getChannel(@RequestParam String sourceApp,
-      @RequestParam String tranType);
+    @GetMapping(value = "/channel")
+    Channel getChannel(@RequestParam String sourceApp,
+            @RequestParam String tranType);
 
-  @GetMapping(value = "/channels")
-  List<Channel> getAllChannel();
+    @GetMapping(value = "/channel/{code}")
+    Channel getChannel(@PathVariable String code);
 
-  @PostMapping(value = "/channel")
-  ResponseEntity<Channel> saveChannel(@Valid @RequestBody Channel channel,
-      @RequestParam UUID uuid);
+    @GetMapping(value = "/channels")
+    List<Channel> getAllChannel();
 
-  @PutMapping(value = "/channel/{id}")
-  Channel updateChannel(@Valid @RequestBody Channel channel,
-      @PathVariable Long id);
+    @PostMapping(value = "/channel")
+    ResponseEntity<Channel> saveChannel(@Valid @RequestBody Channel channel,
+            @RequestParam UUID uuid);
 
-  @PostMapping(value = "/channel-submit")
-  Channel submitChannel(@Valid @RequestBody Channel channel, UUID uuid);
+    @PutMapping(value = "/channel/{id}")
+    Channel updateChannel(@Valid @RequestBody Channel channel,
+            @PathVariable Long id);
 
-  @DeleteMapping(value = "/channels")
-  void deleteAllChannel();
+    @PostMapping(value = "/channel-submit")
+    Channel submitChannel(@Valid @RequestBody Channel channel, UUID uuid);
+
+    @DeleteMapping(value = "/channels")
+    void deleteAllChannel();
 }

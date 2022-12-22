@@ -20,6 +20,8 @@ public interface ChannelRepository extends JpaRepository<Channel, Long> {
       String sourceApp,
       String tranType);
 
-  Boolean findByChannelCode(String ChannelCode);
+  Channel findByChannelCode(String ChannelCode);
+
+  Boolean existsByChannelCode(String ChannelCode);
 
 }

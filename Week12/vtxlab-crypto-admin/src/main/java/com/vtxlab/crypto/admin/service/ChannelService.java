@@ -9,6 +9,8 @@ public interface ChannelService {
 
   Channel getChannel(String sourceType, String tranType);
 
+  Channel getChannel(String channelCode);
+
   List<Channel> getAllChannel();
 
   Channel saveChannel(Channel channel, UUID uuid);

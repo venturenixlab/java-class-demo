@@ -12,6 +12,7 @@ import com.vtxlab.crypto.channel.service.ThirdPartyService;
 import com.vtxlab.crypto.channel.utils.ChannelApi;
 
 @Service
+// Approach 1
 public class ThirdPartyServiceHolder implements ThirdPartyService {
 
   @Autowired

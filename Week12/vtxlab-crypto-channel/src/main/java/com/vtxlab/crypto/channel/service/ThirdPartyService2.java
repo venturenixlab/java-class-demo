@@ -1,16 +1,13 @@
 package com.vtxlab.crypto.channel.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.vtxlab.crypto.channel.exception.ApiException;
 import com.vtxlab.crypto.channel.model.dto.ChannelDto;
 
-// Approach 1
-public interface ThirdPartyService {
+// Approach 2
+public interface ThirdPartyService2 {
 
   ChannelDto getThirdPartyExchangeRates(List<String> cryptos,
-      List<String> currencies, String baseUrl, String serviceVers,
-      String serviceUrl) throws ApiException;
-
+      List<String> currencies) throws ApiException;
 }

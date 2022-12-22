@@ -46,7 +46,7 @@ public class ChannelTransaction {
   private LocalDateTime lastUpdDate;
 
   @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "CHANNEL_ID", referencedColumnName = "ID")
+  @JoinColumn(name = "channel_id", referencedColumnName = "id")
   @JsonIgnoreProperties("coinTrans")
   private Channel channel;
 

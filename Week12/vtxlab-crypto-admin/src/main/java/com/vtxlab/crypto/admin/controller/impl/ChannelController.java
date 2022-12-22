@@ -12,8 +12,6 @@ import com.vtxlab.crypto.admin.controller.ChannelOperations;
 import com.vtxlab.crypto.admin.entity.Channel;
 import com.vtxlab.crypto.admin.service.ChannelService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
 @RequestMapping(value = "/crypto/admin/api/v1")
 public class ChannelController implements ChannelOperations {
@@ -24,6 +22,11 @@ public class ChannelController implements ChannelOperations {
   @Override
   public Channel getChannel(String sourceApp, String tranType) {
     return channelService.getChannel(sourceApp, tranType);
+  }
+
+  @Override
+  public Channel getChannel(String channelCode) {
+    return channelService.getChannel(channelCode);
   }
 
   @Override

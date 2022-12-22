@@ -1,0 +1,22 @@
+server:
+  port: 8030
+
+service:
+  admin:
+    baseUrl: http://localhost:8087 # admin-service host
+    serviceVers: crypto/admin/api/v1
+    endpoint:
+      channel-url1: channel
+      coinmap-url: channel/{id}/coinmap # for approach 1
+      channel-url2: channel/{code}
+      # coinmap-url2: channel/{id}/coinmap2 # for approach 2
+  coingecko:
+    baseUrl: http://localhost:8085 # coingecko-service host
+    serviceVers: crypto/api/v1
+    serviceUrl: coingecko/simple-price
+  polygon:
+    baseUrl: http://localhost:8086 # polygon-service host
+    serviceVers: crypto/polygon/api/v1
+    serviceUrl: price
+
+    

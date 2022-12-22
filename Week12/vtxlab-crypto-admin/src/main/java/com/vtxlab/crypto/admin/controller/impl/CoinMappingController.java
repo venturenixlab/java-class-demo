@@ -1,5 +1,7 @@
 package com.vtxlab.crypto.admin.controller.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,11 @@ public class CoinMappingController implements CoinMappingOperations {
   public ChannelCoinMapping saveCoinMapping(Long id,
       ChannelCoinMapping coinMapping) {
     return coinMappingService.save(id, coinMapping);
+  }
+
+  @Override
+  public List<ChannelCoinMapping> getCoinMapping(Long id) {
+    return coinMappingService.getByChannelId(id);
   }
 
 }

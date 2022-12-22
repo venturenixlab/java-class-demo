@@ -39,7 +39,7 @@ public class ChannelCoinMapping {
   private LocalDateTime lastUpdDate;
 
   @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "CHANNEL_ID", referencedColumnName = "ID")
+  @JoinColumn(name = "channel_id", referencedColumnName = "id")
   @JsonIgnoreProperties("coinMaps")
   private Channel channel;
 }
