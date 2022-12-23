@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.vtxlab.crypto.channel.service.ThirdPartyService2;
 
 @Component
+// For Apporach 2
 public class ThirdPartyServiceFactory {
 
   @Autowired
